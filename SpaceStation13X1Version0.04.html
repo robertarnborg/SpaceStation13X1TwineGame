@@ -20,7 +20,7 @@ Your Bunk smells of old sweat and dirty laundry. A small mirror displays the ref
 You are in a hallway leading to the various crew quarters. Down the corridor is your crew bunk next to the steaming Crew Showers. You can smell a faint touch of cologne emanating from Father Tristram&#39;s quarter.
 
 (if: $isAirCleanAgain is true)[
-[[The Air Duct Are Flowing Freer]] 
+[[You feel air again flow from the ventilation ducts-&gt;The Air Duct Are Flowing Freer]] 
 ]
 (else:)[
 [[Enter Your Bunk -&gt;Jordan&#39;s Bunk]] 
@@ -29,11 +29,9 @@ You are in a hallway leading to the various crew quarters. Down the corridor is 
 
 [[Go To Hall Connector -&gt;Hall Connector]] 
 ]
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1088,674" size="100,100">Crew Showers
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1088,673" size="100,100">Crew Showers
 
-(set: $shower1 to &quot;Crew Showers
-
-Steam and hot vapor greet you as you enter the shower area. &quot;&quot;Refreshing!&quot;&quot;)
+(set: $shower1 to &quot;Steam and hot vapor greet you as you enter the shower area. Refreshing!&quot;)
 
 (set: $shower2 to &quot;A musky stench of decay fill the shower areas and blood is pouring out from every shower faucet.&quot;)
 
@@ -58,7 +56,7 @@ Steam and hot vapor greet you as you enter the shower area. &quot;&quot;Refreshi
 
 SPACE STATION 13X1
 
-[[Start The Game -&gt;Prelude Bar1]] </tw-passagedata><tw-passagedata pid="5" name="The Bar" tags="" position="1102,351" size="100,100">The Bar
+[[Begin Story -&gt;Prelude Bar1]] </tw-passagedata><tw-passagedata pid="5" name="The Bar" tags="" position="1102,351" size="100,100">The Bar
 
 You enter the old storage module for the station, though the only things stored here nowadays are booze and vague memories.
 
@@ -114,7 +112,7 @@ However, only two suits remain.
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 (if: $isAirCleanAgain)[
-[[The Air Duct Are Flowing Freer]] 
+[[You feel air again flow from the ventilation ducts-&gt;The Air Duct Are Flowing Freer]] 
 (set: $isAirCleanMeetingLounge to true)
 ]
 (else:)[
@@ -126,7 +124,7 @@ A blinding white light irritates the eyes, as you walk into the lab. In front of
 
 (if: $hasAlienEscaped is false)[
  Debris is covering the floor and the research chamber has cracked in two. You also notice the air vent inside the room.
- (set: $hasAlienEscaped is true)
+ (set: $hasAlienEscaped to true)
 ]
 
 
@@ -250,11 +248,13 @@ Morgan: &quot;It is amazing!&quot;
 You enter the room.
 [[Continue -&gt; TheThing]]</tw-passagedata><tw-passagedata pid="34" name=" TheThing" tags="" position="542,703.5" size="100,100">Morgan: &quot;Look, look at it&#39;s amazing growth!&quot;
 
-You find Morgan entranced, staring through the window pane facing the Xeno Research Chamber. Beyond, in the center of the incasing, exists, a small, but rapidly growing slug of red meat.
+You find Morgan entranced, staring through the window pane facing the Research Chamber. Beyond, in the center of the incasing, exists, a small, but rapidly growing slug of red meat.
 
 You see the red IV tubing connected to the thing.
 
 [[What is it we are feeding this, blood?]]</tw-passagedata><tw-passagedata pid="35" name="What is it we are feeding this, blood?" tags="" position="544,844.5" size="100,100">The hubris of Morgan&#39;s endeavours and the sight of that thing gives you a searing head ache.
+
+Morgan: &quot;Regenerative welding tissue... responds to organic stimuli... fascinating!!&quot;
 
 [[Contemplate Coffee]] </tw-passagedata><tw-passagedata pid="36" name="Neverending Tirade" tags="" position="182,417.5" size="100,100">Morgan goes on about unappreciative crew members and how they cannot understand him. You think to yourself:
 
