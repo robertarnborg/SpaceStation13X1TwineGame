@@ -11,11 +11,11 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Robb" startnode="4" creator="Twine" creator-version="2.3.9" ifid="268EFD94-4BE9-4DA4-90CC-20AC1D80DBC7" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Jordan&#39;s Bunk" tags="" position="1222,826" size="100,200">Jordan&#39;s Bunk
+<tw-storydata name="Robb" startnode="4" creator="Twine" creator-version="2.3.9" ifid="268EFD94-4BE9-4DA4-90CC-20AC1D80DBC7" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Jordan&#39;s Bunk" tags="" position="1774,802" size="100,200">Jordan&#39;s Bunk
 
 Your Bunk smells of old sweat and dirty laundry. A small mirror displays the reflection of your haggard, hung over, appearance. A humming sound radiates from the ceiling fan. The room feels as cold and clammy as your skin.
 
-[[There is a door leading outside to the Crew Quarters Hallway -&gt;Crew Quarters]]</tw-passagedata><tw-passagedata pid="2" name="Crew Quarters" tags="" position="1222,674" size="100,100">Crew Quarters
+[[There is a door leading outside to the Crew Quarters Hallway -&gt;Crew Quarters]]</tw-passagedata><tw-passagedata pid="2" name="Crew Quarters" tags="" position="1775,650" size="100,100">Crew Quarters
 
 You are in a hallway leading to the various crew quarters. Down the corridor is your crew bunk next to the steaming Crew Showers. You can smell a faint touch of cologne emanating from Father Tristram&#39;s quarter.
 
@@ -29,7 +29,7 @@ You are in a hallway leading to the various crew quarters. Down the corridor is 
 
 [[Go To Hall Connector -&gt;Hall Connector]] 
 ]
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1066,647" size="100,100">Crew Showers
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1618,623" size="100,100">Crew Showers
 
 (set: $shower1 to &quot;Steam and hot vapor greet you as you enter the shower area. Refreshing!&quot;)
 
@@ -59,13 +59,13 @@ You are in a hallway leading to the various crew quarters. Down the corridor is 
 
 SPACE STATION 13X1
 
-[[Begin Story -&gt;Prelude Bar1]] </tw-passagedata><tw-passagedata pid="5" name="The Bar" tags="" position="932,350" size="100,100">The Bar
+[[Begin Story -&gt;Start]] </tw-passagedata><tw-passagedata pid="5" name="The Bar" tags="" position="1513,326" size="100,100">The Bar
 
 You enter the old storage module for the station, though the only things stored here nowadays are booze and vague memories.
 
 [[Enter Meeting Lounge -&gt;Meeting Lounge]] 
 
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 3 -&gt;Air Duct No. 3]] </tw-passagedata><tw-passagedata pid="6" name="Bridge" tags="" position="1225,113" size="100,100">The Bridge
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 3 -&gt;Air Duct No. 3]] </tw-passagedata><tw-passagedata pid="6" name="Bridge" tags="" position="1777,89" size="100,100">The Bridge
 
 This is the main command room of the station. And as such it is plastered with the most expensive gear the captain was willing to buy, which meant the quality was questionable at best and a waiting lawsuit at worst. And yet it ticks on, undoubtedly due to your repair efforts, but you sense it’s a losing battle, which can only end up bad. Though the equipment is lacking, the view is not, a massive window takes up the back wall revealing the beauty of the stars. To the right back corner there is a crawl space that leads to the engine room.
 
@@ -85,7 +85,7 @@ This is the main command room of the station. And as such it is plastered with t
 (live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 5s)[(goto: &quot;Dead&quot;)]
-]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1223,472" size="100,100">Hall Connector
+]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1775,448" size="100,100">Hall Connector
 
 This central hallway hub leads to all the main modules of Space Station 13X1.
 
@@ -97,7 +97,7 @@ This central hallway hub leads to all the main modules of Space Station 13X1.
 
 [[Crew Quarters]] 
 
-[[Emergency Escape Pod]] </tw-passagedata><tw-passagedata pid="8" name="Med Bay" tags="" position="1354,363" size="100,100">Med Bay
+[[Emergency Escape Pod]] </tw-passagedata><tw-passagedata pid="8" name="Med Bay" tags="" position="1906,339" size="100,100">Med Bay
 
 As you walk into the med bay, a familiar pain courses through your right wrist, you remember that it wasn&#39;t that long ago your wrist was sprained and that you had to spend most of your day cooped up in this little room. The room itself is claustrophobic as it has to pull double duty as both med bay and storage space. To your right you see the bed you stayed in and to your left there is nothing but boxes with a hazard symbol on them, but you doubt there is anything in them that would cause alarm. Behind the boxes there is a narrow walkway, which leads to the xeno lab.
 
@@ -107,17 +107,17 @@ As you walk into the med bay, a familiar pain courses through your right wrist, 
 
 [[Go To Hall Connector -&gt;Hall Connector]] 
 
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]] </tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="1102,498" size="100,100">Kitchen
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]] </tw-passagedata><tw-passagedata pid="9" name="The Kitchen" tags="" position="1654,474" size="100,100">Kitchen
 
 A strange odour fill your nostrils from the unemptied trash compactor to your left. It seems the one scheduled to empty it forgot to before they left the ship for the planet. The meal prep area loosely named &quot;The Kitchen&quot; is a cramped space fit for a person at a time. Some in the crew get claustrophobic but you&#39;re used to crawling in tight places.
 
-[[Return to Kitchen -&gt;Meeting Lounge]] </tw-passagedata><tw-passagedata pid="10" name="Docking Station" tags="" position="1497,357" size="100,100">Docking Station
+[[Return to Kitchen -&gt;Meeting Lounge]] </tw-passagedata><tw-passagedata pid="10" name="Docking Station" tags="" position="2049,333" size="100,100">Docking Station
 
 This is where ships dock at the station. You can see compartments for crew space suits lined up on the wall next to the docking entrance vault. 
 
 However, only two suits remain.
 
-[[Return to Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="11" name="Meeting Lounge" tags="" position="1088,347" size="100,100">Meeting Lounge/Dining Room
+[[Return to Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="11" name="Meeting Lounge" tags="" position="1642,323" size="100,100">Meeting Lounge/Dining Room
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 (if: $isAirCleanAgain)[
@@ -127,7 +127,7 @@ In contrast to the Kitchen, this room opens up invitingly with a comfy couch alo
 (else:)[
 [[Enter &quot;The Bar&quot;-&gt;The Bar]] 
 ]
-</tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1365,529" size="100,100">Xeno Lab
+</tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1917,505" size="100,100">Xeno Lab
 
 A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
 
@@ -139,13 +139,13 @@ A blinding white light irritates the eyes, as you walk into the lab. In front of
 
 [[Go to Med Bay -&gt;Med Bay]] 
 
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="13" name="Air Duct No. 2" tags="" position="779,498" size="100,100">Air Duct No. 2
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="13" name="Air Duct No. 2" tags="" position="1334,408" size="100,100">Air Duct No. 2
 
 As you enter air duct 2, a foul smell enters your nostrils, the pungent odor seems to be leaking from one of the floor panels.
 
 [[There is a passage leading to &quot;The Bar&quot; -&gt;The Bar]] 
 
-[[There is a passage leading to the Crew Showers -&gt;Crew Showers]] </tw-passagedata><tw-passagedata pid="14" name="Air Duct No. 1" tags="" position="1373,677" size="100,100">Air Duct No. 1
+[[There is a passage leading to the Crew Showers -&gt;Crew Showers]] </tw-passagedata><tw-passagedata pid="14" name="Air Duct No. 1" tags="" position="1925,653" size="100,100">Air Duct No. 1
 
 After climbing in the vents for some time. You find yourself in Air Duct No. 1, a chilly draft penetrates your protective clothing and makes your stay uncomfortable.
 
@@ -160,19 +160,19 @@ Looking down you see the gooey, dark, moist, red pools of blood, littered with c
 
 [[There is a passage leading to the Crew Quarters -&gt;Crew Quarters]] 
 
-</tw-passagedata><tw-passagedata pid="15" name="Air Duct No. 3" tags="" position="1094,219" size="100,100">Air Duct No. 3
+</tw-passagedata><tw-passagedata pid="15" name="Air Duct No. 3" tags="" position="1646,195" size="100,100">Air Duct No. 3
 
 As you open Air Duct No. 3, you feel a breeze of air touch your skin and hear the soft flapping hums of the ventilation fans, but as you crawl further in the stench of putrid decay leaves you in a nauseated state of sickening dismay.
 
 [[There is a passage leading to the Bridge -&gt;Bridge]] 
 
-[[There is a passage leading to &quot;The Bar&quot; -&gt;The Bar]] </tw-passagedata><tw-passagedata pid="16" name="Air Duct No. 4" tags="" position="1350,227" size="100,100">Air Duct No. 4
+[[There is a passage leading to &quot;The Bar&quot; -&gt;The Bar]] </tw-passagedata><tw-passagedata pid="16" name="Air Duct No. 4" tags="" position="1902,203" size="100,100">Air Duct No. 4
 
 The tight metal ventilation shafts of Air Duct No. 4 are filled with gloomy flickering displays of fans twirling through cascades of light.
 
 [[There is a passage leading to the Bridge -&gt;Bridge]] 
 
-[[There is a passage leading to the Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="17" name="Engine Room" tags="" position="1489,108" size="100,100">Engine Room
+[[There is a passage leading to the Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="17" name="Engine Room" tags="" position="2041,84" size="100,100">Engine Room
 
 &quot;In a poorly lit crawl space in the lower floors of the station, the main engine resides. It&#39;s a big complicated machine with numerous valves and leavers, requiring certain finesse to tame. It’s heated pipes and electrical wiring makes it dangerous for untrained personnel.&quot;)
 
@@ -190,48 +190,46 @@ The tight metal ventilation shafts of Air Duct No. 4 are filled with gloomy flic
 (live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 5s)[(goto: &quot;Dead&quot;)]
-]
-
-</tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="1497,477" size="100,100">Emergency Escape Pod
+]</tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="2049,453" size="100,100">Emergency Escape Pod
 
 In a dark rarely visited room in the depths of the station, lies the coveted escape pod. The room is dank, and the floor is covered in a thin mist, a faint smell of rust fills the room. A singular escape pod stands in the middle of the room with it’s doors open beckoning you to come to its safety.
 
-[[Return to Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="19" name="Prelude Bar1" tags="" position="43,291" size="100,100">You&#39;re at the bar on station 13X1 with your colleague Morgan Axeman. The auto-dimming light, the whirring airvent entering power-saving indicates the late hour that has left the tables filled to the brim with crumpled packets of alco-fuel, also hinting of the night&#39;s neverending cruise for inebriation.
+[[Return to Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="19" name="Prelude Bar1" tags="" position="624,108" size="100,100">You&#39;re at the bar on station 13X1 with your colleague Morgan Axeman. The auto-dimming light, the whirring airvent entering power-saving indicates the late hour that has left the tables filled to the brim with crumpled packets of alco-fuel, also hinting of the night&#39;s neverending cruise for inebriation.
 
 The other crew members have left the scene and it is just the two of you, hammering away, like most nights lately.
 
 Morgan: &quot;I want to tell you something, Jordan... it&#39;s about my latest discovery.&quot;
-[[Continue -&gt;PreludeBar2]] </tw-passagedata><tw-passagedata pid="20" name="PreludeBar2" tags="" position="41,424" size="100,100">Morgan&#39;s on a serious tirade about something but your thoughts are elsewhere.
-[[Neverending Tirade]] </tw-passagedata><tw-passagedata pid="21" name="PreludeBar3" tags="" position="64,729" size="100,100">You stagger back to your bunk in the Crew Quarters.
-[[Continue -&gt;PreludeBar4]] </tw-passagedata><tw-passagedata pid="22" name="PreludeBar4" tags="" position="158,852" size="100,100">As you stumble through the murky dim-lit station, you hear the soft voice
+[[Continue -&gt;PreludeBar2]] </tw-passagedata><tw-passagedata pid="20" name="PreludeBar2" tags="" position="622,241" size="100,100">Morgan&#39;s on a serious tirade about something but your thoughts are elsewhere.
+[[Neverending Tirade]] </tw-passagedata><tw-passagedata pid="21" name="PreludeBar3" tags="" position="645,546" size="100,100">You stagger back to your bunk in the Crew Quarters.
+[[Continue -&gt;PreludeBar4]] </tw-passagedata><tw-passagedata pid="22" name="PreludeBar4" tags="" position="739,669" size="100,100">As you stumble through the murky dim-lit station, you hear the soft voice
 of Father Tristram through the Hall Connector. Passing by his quarters, you see him performing an unusual soothing prayer and not the usual mantra you&#39;ve heard before.
 
-[[Continue -&gt;PreludeBar5]] </tw-passagedata><tw-passagedata pid="23" name="PreludeBar5" tags="" position="290,845" size="100,100">You go to bed in your bunk.
+[[Continue -&gt;PreludeBar5]] </tw-passagedata><tw-passagedata pid="23" name="PreludeBar5" tags="" position="736,799" size="100,100">You go to bed in your bunk.
 
-[[Continue -&gt;Day1 Wake Up]] </tw-passagedata><tw-passagedata pid="24" name="Jordan&#39;s Bunk Before Alien" tags="" position="424,702" size="100,100">Jordan&#39;s Bunk
+[[Continue -&gt;Day1 Wake Up]] </tw-passagedata><tw-passagedata pid="24" name="Jordan&#39;s Bunk Before Alien" tags="" position="870,656" size="100,100">Jordan&#39;s Bunk
 
 Your Bunk smells of old sweat and dirty laundry. A small mirror displays the reflection of your haggard, hung over, appearance. A humming sound radiates from the ceiling fan. The room feels as cold and clammy as your skin.
 
 [[There is a door leading outside to the Crew Quarters Hallway -&gt;Tristram Greets and Takes You To Med Lab]] 
-</tw-passagedata><tw-passagedata pid="25" name="Day1 Wake Up" tags="" position="413,840" size="100,100">You wake up to the beeping noise on your engineer maintenance pad and feel excruciating pain in your temple region from last night&#39;s binge.
+</tw-passagedata><tw-passagedata pid="25" name="Day1 Wake Up" tags="" position="859,794" size="100,100">You wake up to the beeping noise on your engineer maintenance pad and feel excruciating pain in your temple region from last night&#39;s binge.
 
 Datapad Voice: &quot;Alert! Ventilation in Crew Quarters needs urgent attention!&quot;
 
-[[You get your shit together and get up! -&gt;Jordan&#39;s Bunk Before Alien]] </tw-passagedata><tw-passagedata pid="26" name="WonderSame" tags="" position="36,590" size="100,100">Morgan: &quot;Hey, piss off! Clearly, you haven&#39;t noticed, my true... GENIUS!&quot;
+[[You get your shit together and get up! -&gt;Jordan&#39;s Bunk Before Alien]] </tw-passagedata><tw-passagedata pid="26" name="WonderSame" tags="" position="617,407" size="100,100">Morgan: &quot;Hey, piss off! Clearly, you haven&#39;t noticed, my true... GENIUS!&quot;
 
 On that note, you decide, to leave the &quot;GENIUS&quot;, Morgan.
-[[Continue -&gt;PreludeBar3]] </tw-passagedata><tw-passagedata pid="27" name="GreatUnknown" tags="" position="160,592" size="100,100">Morgan: &quot;Yes... it will be... truly... my greatest discovery... yet!&quot;
+[[Continue -&gt;PreludeBar3]] </tw-passagedata><tw-passagedata pid="27" name="GreatUnknown" tags="" position="741,409" size="100,100">Morgan: &quot;Yes... it will be... truly... my greatest discovery... yet!&quot;
 
 On that note, you decide, to leave Morgan.
-[[Continue -&gt;PreludeBar3]] </tw-passagedata><tw-passagedata pid="28" name="Tristram Greets and Takes You To Med Lab" tags="" position="420,567" size="100,100">&quot;Jordi! Come... Come!&quot;
+[[Continue -&gt;PreludeBar3]] </tw-passagedata><tw-passagedata pid="28" name="Tristram Greets and Takes You To Med Lab" tags="" position="866,521" size="100,100">&quot;Jordi! Come... Come!&quot;
 
 You meet Father Tristram outside your bunk.
 
 Tristram: &quot;Morgan asked me to get you.&quot;
 
-[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="29" name="The Air Duct Are Flowing Freer" tags="" position="856,1113" size="100,100">You sense the Air coming from the station&#39;s air ducts flow freer than before. 
+[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="29" name="The Air Duct Are Flowing Freer" tags="" position="1237,1075" size="100,100">You sense the Air coming from the station&#39;s air ducts flow freer than before. 
 
-[[Hmm, the air ducts must have fixed itself.]]</tw-passagedata><tw-passagedata pid="30" name="Contemplate Coffee" tags="" position="605,1016" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realized all the alco-fuel you left in the Meeting Lounge...
+[[Hmm, the air ducts must have fixed itself.]]</tw-passagedata><tw-passagedata pid="30" name="Contemplate Coffee" tags="" position="986,978" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realized all the alco-fuel you left in the Meeting Lounge...
 
 Tristram: &quot;Jordi. Morgan told me to fetch you here and stealing your time like this was clearly not worth the trouble.&quot;
 
@@ -239,24 +237,24 @@ The priest offers to help you clean up in the Meeting Lounge.
 
 [[Help Tristram in Meeting Lounge -&gt;Meeting Lounge]] 
 
-[[Go To Crew Quarters -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="31" name="Hmm, the air ducts must have fixed itself." tags="" position="968,1111" size="100,100">(if: $isAirCleanMeetingLounge is true)[[[Continue cleaning up alco-fuel -&gt;Meeting Lounge]]]
+[[Go To Crew Quarters -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="31" name="Hmm, the air ducts must have fixed itself." tags="" position="1349,1073" size="100,100">(if: $isAirCleanMeetingLounge is true)[[[Continue cleaning up alco-fuel -&gt;Meeting Lounge]]]
 (else:)[[[The beeping from your datapad is silent. -&gt;Crew Quarters]]]
-(set: $isAirCleanAgain to false)</tw-passagedata><tw-passagedata pid="32" name="THE FREE ROAM GAME" tags="" position="937,104" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Go With Tristram" tags="" position="538,568" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
+(set: $isAirCleanAgain to false)</tw-passagedata><tw-passagedata pid="32" name="THE FREE ROAM GAME" tags="" position="1589,23" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Go With Tristram" tags="" position="984,522" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
 
 Morgan: &quot;It is amazing!&quot;
 
 You enter the room.
-[[Continue -&gt; TheThing]]</tw-passagedata><tw-passagedata pid="34" name=" TheThing" tags="" position="542,703" size="100,100">Morgan: &quot;Look, look at it&#39;s amazing growth!&quot;
+[[Continue -&gt; TheThing]]</tw-passagedata><tw-passagedata pid="34" name=" TheThing" tags="" position="988,657" size="100,100">Morgan: &quot;Look, look at it&#39;s amazing growth!&quot;
 
 You find Morgan entranced, staring through the window pane facing the Research Chamber. Beyond, in the center of the incasing, exists, a small, but rapidly growing slug of red meat.
 
 You see the red IV tubing connected to the thing.
 
-[[What is it we are feeding this, blood?]]</tw-passagedata><tw-passagedata pid="35" name="What is it we are feeding this, blood?" tags="" position="544,844" size="100,100">The hubris of Morgan&#39;s endeavours and the sight of that thing gives you a searing head ache.
+[[What is it we are feeding this, blood?]]</tw-passagedata><tw-passagedata pid="35" name="What is it we are feeding this, blood?" tags="" position="990,798" size="100,100">The hubris of Morgan&#39;s endeavours and the sight of that thing gives you a searing head ache.
 
 Morgan: &quot;Regenerative welding tissue... responds to organic stimuli... fascinating!!&quot;
 
-[[Contemplate Coffee]] </tw-passagedata><tw-passagedata pid="36" name="Neverending Tirade" tags="" position="182,417" size="100,100">Morgan goes on about unappreciative crew members and how they cannot understand him. You think to yourself:
+[[Contemplate Coffee]] </tw-passagedata><tw-passagedata pid="36" name="Neverending Tirade" tags="" position="763,234" size="100,100">Morgan goes on about unappreciative crew members and how they cannot understand him. You think to yourself:
 
 &quot;Why am I stuck on this space station and my only drinking buddy is a drug addicted bio-chemist, who pesters the shit out of me with his incessant ramblings?&quot; 
 
@@ -266,7 +264,7 @@ Morgan:&quot;Why are we... here?&quot;
 
 [[You know what... I was just wondering the exact same. -&gt;WonderSame]]
 
-[[To research and explore the great unknown, it is a research station after all? -&gt;GreatUnknown]]</tw-passagedata><tw-passagedata pid="37" name="Chase Sequence Template" tags="" position="378,14" size="100,100">&lt;!-- DEBUG --&gt;
+[[To research and explore the great unknown, it is a research station after all? -&gt;GreatUnknown]]</tw-passagedata><tw-passagedata pid="37" name="Chase Sequence Template" tags="" position="1264,19" size="100,100">&lt;!-- DEBUG --&gt;
 
 (set: $isChase to true)
 
@@ -294,7 +292,30 @@ Morgan:&quot;Why are we... here?&quot;
 (live: 5s)[(goto: &quot;Dead&quot;)]
 ]
 
-</tw-passagedata><tw-passagedata pid="38" name="Untitled Passage 1" tags="" position="508,12" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="Dead" tags="" position="1693,869" size="100,100">The monster of meat surrounds your body and feeds on your remains.</tw-passagedata><tw-passagedata pid="40" name="Untitled Passage 2" tags="" position="1030,1440" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="38" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="Dead" tags="" position="2245,845" size="100,100">The monster of meat surrounds your body and feeds on your remains.</tw-passagedata><tw-passagedata pid="40" name="Start" tags="" position="199,281" size="100,100">You&#39;re at the bar on space station 13X1, playing poker with two colleges, Morgan and Tristram. You have been drinking the holw evening to celebrate some scientific find Morgan handmade. Off what you can recall it was something about a living tissue thing, you don’t remember the finer details, as it all flew over your head when it was mentioned in the mornings breath. But for now you are more interested in winning your current hand of poker, than some weird space rock.
+
+[[Look at your hand]]
+</tw-passagedata><tw-passagedata pid="41" name="Look at your hand" tags="" position="312,283" size="100,100">You take a look at your cards. It&#39;s somewhat hard to see due to the dim light as the auto dimming system kicks in at this time of night. But what you see puts a smirk on your face, you have a four of queens. You take a quick glance at your coworkers faces and they look stumpt. Is this the opening you were looking for? A chance to clean them for all they got?
+
+[[Take it]]</tw-passagedata><tw-passagedata pid="42" name="Take it" tags="" position="407,422" size="100,100">You proudly say, ALL IN. As you push your chips into the middle of the tabel. Morgan the coward, pulls out. While Tristram challenges your bet. There is no way he got anything better than a four of a kind queens.
+
+[[reveal cards]]
+</tw-passagedata><tw-passagedata pid="43" name="reveal cards" tags="" position="409,554" size="100,100">With a grin on your face, you reveal your cards, confident that he got nothing. Tristram does the same. You look at his cards, Ha he only got a strait. And you got a four of a kind so that means you win.
+
+[[Celebrate your victory]]
+</tw-passagedata><tw-passagedata pid="44" name="Celebrate your victory" tags="" position="410,675" size="100,100">As you start celebrating, your coworkers look at you with bewilderment. As you stop to ask them why they look surprised. Tristram says “A straight beats three of a kind, I win”.  What is he saying? You got a four of a kind. 
+
+[[Dubbel check your cards]]
+</tw-passagedata><tw-passagedata pid="45" name="Dubbel check your cards" tags="" position="413,790" size="100,100">You dubbel check your cards and as you do so you are grabbed by the realization. That one of your Queens is a Jack not a queen. You had mistaken it as a queen as you are so drunk you can barely see. Not that the bars dim light helpt. As you look over at Tristram as he joyfully sweeps the pot. You think to yourself “The bastard wasn&#39;t even drunk, something about his religion or what ever denied him from drinking, what a sack of bullshit. He probably didn’t drink so he could easily win against dunk opponents. What a git.”
+
+And as you angerdly mumble to yourself, Morgan tried to strike up a conversation. 
+
+Morgan: &quot;I want to tell you something, Jordan... it&#39;s about my latest discovery.&quot;
+
+Dear god no! First I lose to Tristram and then Morgan wants to talk about his discoveries!? Unless he discovered how to not be completely insufferable I will need another bottle, preferably before I brain myself on the table.
+
+[[Find your will to live]]
+</tw-passagedata><tw-passagedata pid="46" name="Find your will to live" tags="" position="412,924" size="100,100">TO DO</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
