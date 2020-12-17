@@ -76,7 +76,7 @@ You take a look at the shelfs, sadly there is almost nothing left and what&#39;s
 
 [[Enter Meeting Lounge -&gt;Meeting Lounge]] 
 
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 3 -&gt;Air Duct No. 3]] </tw-passagedata><tw-passagedata pid="6" name="Bridge" tags="" position="1777,89" size="100,100">The Bridge
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 3 -&gt;Air Duct No. 3]] </tw-passagedata><tw-passagedata pid="6" name="Bridge" tags="" position="1776,89" size="100,100">The Bridge
 
 This is the main command room of the station. And as such it is plastered with the most expensive gear the captain was willing to buy, which meant the quality was questionable at best and a waiting lawsuit at worst. And yet it ticks on, undoubtedly due to your repair efforts, but you sense it’s a losing battle, which can only end up bad. Though the equipment is lacking, the view is not, a massive window takes up the back wall revealing the beauty of the stars. To the right back corner there is a crawl space that leads to the engine room.
 
@@ -88,7 +88,7 @@ This is the main command room of the station. And as such it is plastered with t
 
 (if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]]
 
-(if: $hasAlienEscaped is true)[(if: $isMadeContactWithMothership is false)(link: &quot;Contact Mother Ship&quot;)[(set: $isMadeContactWithMothership to true)(goto: &quot;Bridge Mother Ship Contacted&quot;)]]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1756,398" size="100,100">Hall Connector
+(if: $hasAlienEscaped is true)[(if: $isMadeContactWithMothership is false)[(link: &quot;Contact Mother Ship&quot;)[(set: $isMadeContactWithMothership to true)(goto: &quot;Bridge Mother Ship Contacted&quot;)]]]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1756,398" size="100,100">Hall Connector
 
 This central hallway hub leads to all the main modules of Space Station 13X1.
 
@@ -294,7 +294,7 @@ Morgan: &quot;Regenerative welding tissue... responds to organic stimuli... fasc
 (live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 5s)[(goto: &quot;Dead&quot;)]
-]</tw-passagedata><tw-passagedata pid="33" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="Dead" tags="" position="2783,142" size="100,100">The monster of meat surrounds your body and feeds on your remains.
+]</tw-passagedata><tw-passagedata pid="33" name="Untitled Passage 1" tags="" position="1486,111" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="34" name="Dead" tags="" position="2783,142" size="100,100">The monster of meat surrounds your body and feeds on your remains.
 
 [[Try Again From Engine Room-&gt;Chase Engine Room]] </tw-passagedata><tw-passagedata pid="35" name="Start" tags="" position="199,281" size="100,100">You&#39;re at the bar on space station 13X1, playing poker with two colleagues, Morgan and Tristram. You have been drinking the whole evening to celebrate some scientific find Morgan had made. Furthermore, you recall it was something about a living tissue thing, you don’t remember the finer details, as it all flew over your head when it was mentioned in the morning&#39;s brief. But for now you are more interested in winning your current hand of poker, than some weird space rock.
 
