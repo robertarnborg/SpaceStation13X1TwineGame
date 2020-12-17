@@ -76,17 +76,9 @@ This is the main command room of the station. And as such it is plastered with t
 
 (if: $hasAlienEscaped is true)[[Enter Air Duct No. 3 -&gt;Air Duct No. 3]] 
 
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]] 
+(if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]]
 
-&lt;!-- When CHASE Sequence --&gt;
-(if: $isChase)[
-5
-(live: 1s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 5s)[(goto: &quot;Dead&quot;)]
-]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1775,448" size="100,100">Hall Connector
+(if: $hasAlienEscaped is true)[(if: $isMadeContactWithMothership is false)(link: &quot;Contact Mother Ship&quot;)[(set: $isMadeContactWithMothership to true)(goto: &quot;Bridge Mother Ship Contacted&quot;)]]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1775,448" size="100,100">Hall Connector
 
 This central hallway hub leads to all the main modules of Space Station 13X1.
 
@@ -542,13 +534,18 @@ A blinding white light irritates the eyes, as you walk into the lab. In front of
 (live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
 (live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="60" name="Chase Emergency Pod" tags="" position="3732,603" size="100,100">Emergency Escape Pod
+(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="60" name="Chase Emergency Pod" tags="" position="3446,629" size="100,100">Emergency Escape Pod
 
 In a dark rarely visited room in the depths of the station, lies the coveted escape pod. The room is dank, and the floor is covered in a thin mist, a faint smell of rust fills the room. A singular escape pod stands in the middle of the room with it’s doors open beckoning you to come to its safety.
 
-[[Return to Hall Connector -&gt;Chase Hall Connector]]
+[[Enter The Escape Pod!!! -&gt;ESCAPE POD CHECK ENDING]] 
 
-&lt;!-- TO DO END BOOL CHECKS --&gt;
+&lt;!-- ENDINGS DEBUGGER REMEMBER TO HAVE SET THESE SOMEWHERE :P
+
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to false)
+
+--&gt;
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -561,7 +558,9 @@ In a dark rarely visited room in the depths of the station, lies the coveted esc
 (live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
 (live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="61" name="Chase Crew Showers" tags="" position="3106,834" size="100,100">The shower is filled with blood, and guts everywhere.
+(live: 10s)[(goto: &quot;Dead&quot;)]
+
+</tw-passagedata><tw-passagedata pid="61" name="Chase Crew Showers" tags="" position="3106,834" size="100,100">The shower is filled with blood, and guts everywhere.
 
 You hear the beast behind you!
 
@@ -724,7 +723,84 @@ However, only two suits remain.
 (live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
 (live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata></tw-storydata>
+(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="69" name="Bridge Mother Ship Contacted" tags="" position="1893,4" size="100,100">The Bridge
+
+You are able to warn the Mother Ship about the escape of that... thing!
+
+[[Crawl to the Engine Room -&gt;Engine Room]] 
+
+[[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="70" name="ESCAPE POD CHECK ENDING" tags="" position="3605,621.5" size="100,100">(if: $isGetTristram)[
+	(if: $isMadeContactWithMothership)[
+		(goto: &quot;Ending With Tristram Made Contact&quot;)]
+(else:)[
+(goto: &quot;Ending With Tristram No Contact&quot;)]
+]
+(else:)[(goto: &quot;Ending Alone&quot;)]</tw-passagedata><tw-passagedata pid="71" name="Ending With Tristram Made Contact" tags="" position="3762,491.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+
+Hours later an escape pod is picked up, by a military vessel. It had been sent there on suspicion that an alien life form had escaped and proven itself to be dangerous. Their suspicions were right, that is exactly what they found.
+
+THE END
+
+(link: &quot;Start From Beginning&quot;)[(goto: &quot;Initialize Game Set Variables&quot;)]
+
+------ENDINGS DEBUG------
+
+(link: &quot;Ending - With Tristram Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to true)
+(set: $isGetTristram to true)
+(goto: &quot;ESCAPE POD CHECK ENDING&quot;)]
+(link: &quot;Ending - With Tristram Not Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to true)
+(goto: &quot;Chase Emergency Pod&quot;)]
+(link: &quot;Ending - Alone&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to false)
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="72" name="Ending With Tristram No Contact" tags="" position="3761,608.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+
+Hours later an escape pod is picked up, by an unsuspecting cargo ship. No one survived...
+
+THE END
+
+(link: &quot;Start From Beginning&quot;)[(goto: &quot;Initialize Game Set Variables&quot;)]
+
+------ENDINGS DEBUG------
+
+(link: &quot;Ending - With Tristram Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to true)
+(set: $isGetTristram to true)
+(goto: &quot;ESCAPE POD CHECK ENDING&quot;)]
+(link: &quot;Ending - With Tristram Not Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to true)
+(goto: &quot;Chase Emergency Pod&quot;)]
+(link: &quot;Ending - Alone&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to false)
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="73" name="Ending Alone" tags="" position="3760,726.5" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
+
+It’s Tristram! Banging on the door to let him in. He screams “Let me in!”, but it’s too late. The pod ejects before you can do anything. And as you get sucked it into the vacuum of space, you see Tristram getting attacked and eaten by that monster!
+
+As you hover in space waiting for rescue, the last words Tristram told you echoes in your mind. Let me in. Let me in.. Let me in...
+
+THE END
+
+(link: &quot;Start From Beginning&quot;)[(goto: &quot;Initialize Game Set Variables&quot;)]
+
+------ENDINGS DEBUG------
+
+(link: &quot;Ending - With Tristram Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to true)
+(set: $isGetTristram to true)
+(goto: &quot;ESCAPE POD CHECK ENDING&quot;)]
+(link: &quot;Ending - With Tristram Not Contacted Mother Ship&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to true)
+(goto: &quot;Chase Emergency Pod&quot;)]
+(link: &quot;Ending - Alone&quot;)[
+(set: $isMadeContactWithMothership to false)
+(set: $isGetTristram to false)
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
