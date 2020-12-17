@@ -181,7 +181,8 @@ The tight metal ventilation shafts of Air Duct No. 4 are filled with gloomy flic
 [[There is a passage leading to the Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="17" name="Engine Room" tags="" position="2041,84" size="100,100">Engine Room
 
 &quot;In a poorly lit crawl space in the lower floors of the station, the main engine resides. It&#39;s a big complicated machine with numerous valves and leavers, requiring certain finesse to tame. It’s heated pipes and electrical wiring makes it dangerous for untrained personnel.&quot;)
-</tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="2135,449" size="100,100">Emergency Escape Pod
+
+[[Bridge]] </tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="2135,449" size="100,100">Emergency Escape Pod
 
 In a dark rarely visited room in the depths of the station, lies the coveted escape pod. The room is dank, and the floor is covered in a thin mist, a faint smell of rust fills the room. A singular escape pod stands in the middle of the room with it’s doors open beckoning you to come to its safety.
 
@@ -301,7 +302,7 @@ Morgan:&quot;Why are we... here?&quot;
 (live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 5s)[(goto: &quot;Dead&quot;)]
-]</tw-passagedata><tw-passagedata pid="38" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="Dead" tags="" position="2289,841" size="100,100">The monster of meat surrounds your body and feeds on your remains.
+]</tw-passagedata><tw-passagedata pid="38" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="Dead" tags="" position="2783,142" size="100,100">The monster of meat surrounds your body and feeds on your remains.
 
 [[Try Again From Engine Room-&gt;Chase Engine Room]] </tw-passagedata><tw-passagedata pid="40" name="Start" tags="" position="199,281" size="100,100">You&#39;re at the bar on space station 13X1, playing poker with two colleges, Morgan and Tristram. You have been drinking the holw evening to celebrate some scientific find Morgan handmade. Off what you can recall it was something about a living tissue thing, you don’t remember the finer details, as it all flew over your head when it was mentioned in the mornings breath. But for now you are more interested in winning your current hand of poker, than some weird space rock.
 
@@ -350,12 +351,11 @@ This is the main command room of the station. A massive window takes up the back
 
 You don&#39;t have time to send for help. You need to escape!
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run To Hall Connector&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]
+(link: &quot;Run To Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Hall Connector&quot;)]]
 
-(link: &quot;Enter Air Duct No. 3&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 3&quot;)]
+(link: &quot;Enter Air Duct No. 3&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 3&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Air Duct No. 3&quot;)]]
 
-(link: &quot;Enter Air Duct No. 4&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 4&quot;)]
+(link: &quot;Enter Air Duct No. 4&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 4&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Air Duct No. 4&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -374,10 +374,12 @@ In contrast to the Kitchen, this room opens up invitingly with a comfy couch alo
 
 (if: $hasAlienEscaped is true)
 [The bloody mess of Tristrams encounter earlier has made this place even worse than you left it the night before. You hear the monster getting closer. There&#39;s no time to dawdle.]
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run to The Bar&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase The Bar&quot;)]
 
-(link: &quot;Enter Air Duct No. 2&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]
+(link: &quot;Run to The Bar&quot;)[(set: $currentPassage to &quot;Chase The Bar&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase The Bar&quot;)]]
+
+(link: &quot;Enter Air Duct No. 2&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 2&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]]
+
+(link: &quot;Chase Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]]
 
 [[Enter The Kitchen -&gt;Chase The Kitchen]]
 
@@ -400,10 +402,9 @@ You can hear the beast right behind you and push through hurriedly!
 
 &lt;!-- ADD LINK TO NEXT AREAS AND SAVES THIS AREA SO CANT RETURN --&gt;
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;There is a passage leading to the Bridge &quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Bridge&quot;)]
+(link: &quot;There is a passage leading to the Bridge &quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
-(link: &quot;There is a passage leading to the Med Bay&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Med Bay&quot;)]
+(link: &quot;There is a passage leading to the Med Bay&quot;)[(set: $currentPassage to &quot;Chase Med Bay&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Med Bay&quot;)]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -421,11 +422,9 @@ You can hear the beast right behind you and push through hurriedly!
 As you open Air Duct No. 3, you feel a breeze of air touch your skin and hear the soft flapping hums of the ventilation fans.
 
 You can hear the beast right behind you and push through hurriedly!
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
+(link: &quot;There is a passage leading to the Bridge&quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
-(link: &quot;There is a passage leading to the Bridge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Bridge&quot;)]
-
-(link: &quot;There is a passage leading to The Bar&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase The Bar&quot;)]
+(link: &quot;There is a passage leading to The Bar&quot;)[(set: $currentPassage to &quot;Chase The Bar&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase The Bar&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -440,16 +439,15 @@ You can hear the beast right behind you and push through hurriedly!
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="55" name="Chase Hall Connector" tags="" position="3237,591" size="100,100">The Escape Pod is under the hatch below you. You can escape! You realize there´s room for more, but where are the others!?
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run To The Bridge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Bridge&quot;)]
+(link: &quot;Run To The Bridge&quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
-(link: &quot;Run To Med Bay/Research Area&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Med Bay&quot;)]
+(link: &quot;Run To Med Bay/Research Area&quot;)[(set: $currentPassage to &quot;Chase Med Bay&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Med Bay&quot;)]]
 
-(link: &quot;Run To Meeting Lounge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]
+(link: &quot;Run To Meeting Lounge&quot;)[(set: $currentPassage to &quot;Chase Meeting Lounge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Meeting Lounge&quot;)]]
 
-(link: &quot;Run To Chase Crew Quarters&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Quarters&quot;)]
+(link: &quot;Run To Chase Crew Quarters&quot;)[(set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
 
-(link: &quot;Run To Escape Pod&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Emergency Pod&quot;)]
+(link: &quot;Run To Escape Pod&quot;)[(set: $currentPassage to &quot;Chase Emergency Pod&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Emergency Pod&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -467,11 +465,9 @@ You can hear the beast right behind you and push through hurriedly!
 As you run into the bar, you see Morgan dead on the floor. His throat has an uneven hole, and in his hand there is an empty vial. This doesn&#39;t seem to have been done by that thing chasing you. And no one else except for Morgan could have gotten a vial of throat disintegration. So the only other option is suicide. He must not have been able to handle being chased and chose the easy way out. I don’t blame him, I would have done the same if I had the tools.
 
 You can hear the beast behind you!
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
+(link: &quot;Run to Meeting Lounge&quot;)[(set: $currentPassage to &quot;Chase Meeting Lounge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]]
 
-(link: &quot;Run to Meeting Lounge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]
-
-(link: &quot;Enter Air Duct No. 3&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 3&quot;)]
+(link: &quot;Enter Air Duct No. 3&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 3&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 3&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -493,16 +489,11 @@ You are in a hallway leading to the various crew quarters. Down the corridor is 
 
 Claws rasp against steel plating behind you. Danger! Gotta go fast!
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Enter Air Duct No. 1&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 1&quot;)]
+(link: &quot;Enter Showers&quot;)[(set: $currentPassage to &quot;Chase Crew Showers&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Showers&quot;)]]
 
-(link: &quot;Run To Hall Connector&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]
+(link: &quot;Go To Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]]
 
 [[Run To Your Bunk -&gt;Chase Jordan&#39;s Bunk]]
-
-(link: &quot;Enter Showers&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Showers&quot;)]
-
-(link: &quot;Go To Hall Connector&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -521,10 +512,9 @@ A blinding white light irritates the eyes, as you walk into the lab. In front of
 
 &lt;!-- ADD LINK&#39;S TO NEXT AREAS AND SAVES THIS AREA SO CANT RETURN --&gt;
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run to Med Bay&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Med Bay&quot;)]
+(link: &quot;Run to Med Bay&quot;)[(set: $currentPassage to &quot;Chase Med Bay&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Med Bay&quot;)]]
 
-(link: &quot;Enter Air Duct No. 1&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 1&quot;)]
+(link: &quot;Enter Air Duct No. 1&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 1&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 1&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -567,10 +557,9 @@ In a dark rarely visited room in the depths of the station, lies the coveted esc
 
 You hear the beast behind you!
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run to Crew Quarters&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Quarters&quot;)]
+(link: &quot;Run to Crew Quarters&quot;)[(set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
 
-(link: &quot;Enter Air Duct No. 2&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]
+(link: &quot;Enter Air Duct No. 2&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 2&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -589,10 +578,9 @@ As you enter air duct 2, a foul smell enters your nostrils, the pungent odour se
  
  The beast is closing in behind you!
  
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;There is a passage leading to the Meeting Lounge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]
+(link: &quot;There is a passage leading to the Meeting Lounge&quot;)[(set: $currentPassage to &quot;Chase Meeting Lounge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]]
 
-(link: &quot;There is a passage leading to the Crew Showers&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Showers&quot;)]
+(link: &quot;There is a passage leading to the Crew Showers&quot;)[(set: $currentPassage to &quot;Chase Crew Showers&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Showers&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -626,14 +614,13 @@ You can hear the beast right behind you and push through hurriedly!
 
 &lt;!-- ADD LINK&#39;S TO NEXT AREAS AND SAVES THIS AREA SO CANT RETURN --&gt;
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run to Xeno Lab&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Xeno Lab&quot;)]
+(link: &quot;Run to Xeno Lab&quot;)[(set: $currentPassage to &quot;Chase Xeno Lab&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Xeno Lab&quot;)]]
 
 [[Run to Docking Station -&gt;Chase Docking Station]] 
 
-(link: &quot;Run To Hall Connector&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]
+(link: &quot;Run To Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]]
 
-(link: &quot;Enter Air Duct No. 4&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 4&quot;)]
+(link: &quot;Enter Air Duct No. 4&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 4&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 4&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -646,18 +633,16 @@ You can hear the beast right behind you and push through hurriedly!
 (live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
 (live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="65" name="Chase Engine Room" tags="" position="3232,51" size="100,100">Engine Room
+(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="65" name="Chase Engine Room" tags="" position="3233,51" size="100,100">Engine Room
 
 In a poorly lit crawl space in the lower floors of the station, the main engine resides. It&#39;s a big complicated machine with numerous valves and leavers, requiring certain finesse to tame. It’s heated pipes and electrical wiring makes it dangerous for untrained personnel.
 
 You can see a hulking thing in the mist behind the engine, it&#39;s skin glistens in the dim yellow light. It lifts it&#39;s head and two red eyes single you out. Silvery, long pointed fangs fills it&#39;s huge maw. The monster crawls over the engine as you turn back. You need to flee!
 
 (set:$hasAlienEscaped to true)
-
 &lt;!-- ADD LINK TO NEXT AREAS AND SAVES THIS AREA SO CANT RETURN --&gt;
-
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;Run To Bridge&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Bridge&quot;)]
+(set: $currentPassage to (passage:)&#39;s name)
+(link: &quot;Run To Bridge&quot;)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -683,10 +668,10 @@ Looking down you see the gooey, dark, moist, red pools of blood, littered with c
 (set: $hasSeenBloodInAirducts to true)
 ]
 
-(if: $previousPassage is (passage:)&#39;s name)[(goto: &quot;Dead&quot;)]
-(link: &quot;There is a passage leading to the Xeno Lab&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Xeno Lab&quot;)]
+(link: &quot;There is a passage leading to the Xeno Lab&quot;)[(set: $currentPassage to &quot;Chase Xeno Lab&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Xeno Lab&quot;)]]
 
-(link: &quot;There is a passage leading to the Crew Quarters&quot;)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Quarters&quot;)]
+(link: &quot;There is a passage leading to the Crew Quarters&quot;)[((set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
+
 
 &lt;!-- 10 TIMER --&gt;
 [10]
@@ -844,7 +829,7 @@ Despite his question, you are determined to see his excuse, so you can report it
 Then Morgan does something you weren&#39;t prepared for, he almost starts crying. Then he says “I know you hate me, everyone on the ship does. That’s why I want off this metal hunk of junk of a station. I don’t care about the recognition or the admiration, I just want to be somewhere where everyone doesn&#39;t hate me. And I saw the alien as my ticket out of here, I thought if I could sell it to a third party, I would have the capital to get off this station and maybe even make my own, somewhere where I am not actively despised. And before you say anything, I know that I have made liking me hard, I know that. I just didn&#39;t want to face the truth that the reason people didn&#39;t like me was my fault and not their lack of sophistication… “
 
 [[Continue]]
-</tw-passagedata><tw-passagedata pid="80" name="Continue" tags="" position="2536,581" size="100,100">Morgan continues “If you must know what I was doing, I was trying to contact my buyers. To tell them to pick it up before it got too big. But I was cut off when it escaped. So they are not coming, neither is the mother station. I didn’t contact them as I was trying to sell it… Jordan if I could ask you a favour, help me capture that thing, if you do I will give you a share and you will never have to see me again. You would like that wouldn&#39;t you?”
+</tw-passagedata><tw-passagedata pid="80" name="Continue" tags="" position="2536,582" size="100,100">Morgan continues “If you must know what I was doing, I was trying to contact my buyers. To tell them to pick it up before it got too big. But I was cut off when it escaped. So they are not coming, neither is the mother station. I didn’t contact them as I was trying to sell it… Jordan if I could ask you a favour, help me capture that thing, if you do I will give you a share and you will never have to see me again. You would like that wouldn&#39;t you?”
 
 [[I know he is lying, this is just another manipulative strategy to make you do all the grunt work.]] 
 
