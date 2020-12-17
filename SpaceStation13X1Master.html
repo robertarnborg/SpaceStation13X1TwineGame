@@ -56,7 +56,7 @@ There are more bloody trails leading towards the shower areas...
 (set: $isCleaningWithTristram to false)
 (set: $isGetMorgan to false)
 (set: $isGetTristram to false)
-
+(Set: $putTristramInSofa to false)
 &lt;!-- Flavor Areas Variables --&gt;
 
 (set: $hasSeenBloodInAirducts to false)
@@ -330,7 +330,7 @@ Now that I think about it, it’s more like a P.O box than a research station. W
 
 [[Because we are paid to be here?]]
 
-[[Because here you&#39;ll make the breakthrough of the century!]]</tw-passagedata><tw-passagedata pid="44" name="Because we are paid to be here?" tags="" position="576,1128" size="100,100">Morgan answers “Are you happy with that? For a paycheck to be the only reason you get up in the morning? Is there nothing you strive for? No dream? No goals? 
+[[Because here you&#39;ll make the breakthrough of the century!]]</tw-passagedata><tw-passagedata pid="44" name="Because we are paid to be here?" tags="" position="576,1128" size="100,100">Morgan answers “Are you happy with that? For a paycheck to be the only reason you get up in the morning? Is there nothing you strive for? No dream? No goals?&quot;
 
 Though his questions hit you hard, it isn&#39;t the first time you heard them and frankly you are tired of him questioning your self-worth. You can see in his eyes that he is only waiting for you to answer, so he can rub in that he has a career. And that he as a scientist can change the world. You rather not want to talk with him when he gets like this.
 [[Leave -&gt;PreludeBar3]] 
@@ -354,8 +354,11 @@ You don&#39;t have time to send for help. You need to escape!
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 
-(if: $hasAlienEscaped is true)
+(if: $isGetTristram is true)
 [The bloody mess of Tristrams encounter earlier has made this place even worse than you left it the night before. You hear the monster getting closer. There&#39;s no time to dawdle.]
+
+(if: $putTristramInSofa is true)[ As you walk into the meeting lounge, you see Tristram on the sofa. His condition seems to have worsened, the alcohol you poured on his arm stump, did not have the disinfection properties as you were hoping for. You can’t leave him here,  he needs a doctor as fast as possible. As you pick him up, blood slowly drips from his arm stump. He is heavier than you expected, but you have to make do. For both of you.
+(Set: $isGetTristram to true)]
 
 (link: &quot;Run to The Bar&quot;)[(set: $currentPassage to &quot;Chase The Bar&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase The Bar&quot;)]]
 
@@ -627,10 +630,14 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="69" name="Put him on the sofa" tags="" position="2095,204" size="100,100">After seeing the state Tristram is in, you decide to put him on the sofa. It might be a bit dirty but it’s better than the floor and there is alcohol in the bar cabinets that could be used to disinfect his wound. You think. 
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="69" name="Put him on the sofa" tags="" position="2097,204" size="100,100">After seeing the state Tristram is in, you decide to put him on the sofa. It might be a bit dirty but it’s better than the floor and there is alcohol in the bar cabinets that could be used to disinfect his wound. You think. 
 
 
 After placing him on the sofa, you go and grab a cheap vodka and a cheap gin. You pour some of the vodka on the wound to disinfect it. He makes a grimase it seems pain full, but it’s necessary. As you pour you take a swig of the gin, trying to distract yourself from the blood and gore.
+
+(Set: $putTristramInSofa to true)
+
+
 [[What Now?]]</tw-passagedata><tw-passagedata pid="70" name="Hall Connector2" tags="" position="1865,311" size="100,100">Hall Connector
 
 As you run to the Xeno lab. You see a flustered Morgan running the same way in the Hall Connector, he was coming from the bridge. Which is odd because he was supposed to be in the xeno lab. But now isn’t the time to ask questions, you will have plenty of time when the Xeno lab has been dealt with.
@@ -679,7 +686,7 @@ After finding a bandage roll, you then try to treat his wound. You&#39;re not a 
 
 [[What Now?]]
 
-(set:$isGetTristram to true)</tw-passagedata><tw-passagedata pid="74" name="What Now?" tags="" position="2645,424" size="100,100">A loud snapping sound echoes throghout the station. You know the sound of a cooling tube snapping, and following it the hiss of cold water meeting hot metal. 
+(Set: $isGetTristram to true)</tw-passagedata><tw-passagedata pid="74" name="What Now?" tags="" position="2645,424" size="100,100">A loud snapping sound echoes throghout the station. You know the sound of a cooling tube snapping, and following it the hiss of cold water meeting hot metal. 
 This could be bad, extremely bad. Without coolant the engine will overheat.
 
 You take a quick glance towards the engine room&#39;s direction and see a thick mist rolling down the corridors. You feel adrenaline pumping as you drop what you were doing and hurry to the engine, if it’s not fixed and you&#39;re unlucky it might lead to an engine meltdown.
