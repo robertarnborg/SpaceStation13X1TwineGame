@@ -116,21 +116,24 @@ However, only two suits remain.
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 
-(if: $hasAlienEscaped is true)[As you walk into the meeting room, you are met with a horrible sight, Tristram laying on the floor with his right arm for a lack of a better word gone. It’s nothing more than a bloody stump slowly leaking on the floor. Tristram is unconscious, you&#39;re guessing it’s from the blood loss.]
+(if: $hasAlienEscaped is true)[As you walk into the meeting room, you are met with a horrible sight, Tristram laying on the floor with his right arm for a lack of a better word gone. It’s nothing more than a bloody stump slowly leaking on the floor. Tristram is unconscious, you&#39;re guessing it’s from the blood loss.
 
-(if:$isCleaningWithTristram is true)[ You spend an hour cleaning up your mess.]
+[[Take him to &quot;The Medbay&quot; -&gt;Medbay2]]
 
-(if: $isAirCleanAgain is true)[
+[[Put him on the sofa]]]
+
+(if:$isCleaningWithTristram is true)[ You spend an hour cleaning up your mess.
+
+(live: 3s)[After some time you hear a loud clammering from the Xeno Lab and Morgan shouting, &quot;What the hell was that?!&quot;. Tristram says it&#39;s ok if you go, he&#39;ll finish cleaning up.
+[[Go to &quot;Xeno Lab&quot; -&gt;Hall Connector2]]]]
+(else:)[(if: $isAirCleanAgain is true)[
 [[You feel air again flow from the ventilation ducts-&gt;The Air Duct Are Flowing Freer]] 
-(set: $isAirCleanMeetingLounge to true)
-]
-(else:)[
-[[Enter &quot;The Bar&quot;-&gt;The Bar]] 
-]
+(set: $isAirCleanMeetingLounge to true)]
+(else:)[[[Enter &quot;The Bar&quot;-&gt;The Bar]]]
 
 [[Enter Kitchen -&gt;The Kitchen]] 
 
-[[Go To Hall Connector-&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1996,491" size="100,100">Xeno Lab
+[[Go To Hall Connector-&gt;Hall Connector]] ]</tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1996,491" size="100,100">Xeno Lab
 
 A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
 
@@ -729,13 +732,13 @@ You are able to warn the Mother Ship about the escape of that... thing!
 
 [[Crawl to the Engine Room -&gt;Engine Room]] 
 
-[[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="70" name="ESCAPE POD CHECK ENDING" tags="" position="3605,621.5" size="100,100">(if: $isGetTristram)[
+[[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="70" name="ESCAPE POD CHECK ENDING" tags="" position="3605,621" size="100,100">(if: $isGetTristram)[
 	(if: $isMadeContactWithMothership)[
 		(goto: &quot;Ending With Tristram Made Contact&quot;)]
 (else:)[
 (goto: &quot;Ending With Tristram No Contact&quot;)]
 ]
-(else:)[(goto: &quot;Ending Alone&quot;)]</tw-passagedata><tw-passagedata pid="71" name="Ending With Tristram Made Contact" tags="" position="3762,491.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+(else:)[(goto: &quot;Ending Alone&quot;)]</tw-passagedata><tw-passagedata pid="71" name="Ending With Tristram Made Contact" tags="" position="3762,491" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
 
 Hours later an escape pod is picked up, by a military vessel. It had been sent there on suspicion that an alien life form had escaped and proven itself to be dangerous. Their suspicions were right, that is exactly what they found.
 
@@ -756,7 +759,7 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="72" name="Ending With Tristram No Contact" tags="" position="3761,608.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="72" name="Ending With Tristram No Contact" tags="" position="3761,608" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
 
 Hours later an escape pod is picked up, by an unsuspecting cargo ship. No one survived...
 
@@ -777,7 +780,7 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="73" name="Ending Alone" tags="" position="3760,726.5" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="73" name="Ending Alone" tags="" position="3760,726" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
 
 It’s Tristram! Banging on the door to let him in. He screams “Let me in!”, but it’s too late. The pod ejects before you can do anything. And as you get sucked it into the vacuum of space, you see Tristram getting attacked and eaten by that monster!
 
@@ -800,7 +803,52 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata></tw-storydata>
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="74" name="Medbay2" tags="" position="2272,121" size="100,100">Seeing Tristram in such a bad state, you decide to take him to the medbay, you don’t know if it will help too much, but a clean bead and  bandages is better than a bar sofa. It takes some time to move him, his heavier than you expected, despite losing an arm. When you finally get to the medbay operation table, you palace Tristram on to it. After placing him on the table, you start to frantically look around for bandages. The medbay is poorly organized so it takes you some time to find what you were looking for. After finding a bandage roll, you then try to treat his wound. You&#39;re not a doctor so you&#39;re not used to applying bandages, going after what you know of from using duct tape. You at least got the wound to stop bleeding. </tw-passagedata><tw-passagedata pid="75" name="Put him on the sofa" tags="" position="2270,404" size="100,100">After seeing the state Tristram is in, you decide to put him on the sofa. It might be a bit dirty but it’s better than the floor and there is alcohol in the bar cabinets that could be used to disinfect his wound. You think. 
+
+
+After placing him on the sofa, you go and grab a cheap vodka and a cheap gin. You pour some of the vodka on the wound to disinfect it. He makes a grimase it seems pain full, but it’s necessary. As you pour you take a swig of the gin, trying to distract yourself from the blood and gore.
+</tw-passagedata><tw-passagedata pid="76" name="Hall Connector2" tags="" position="2264,246" size="100,100">Hall Connector
+
+As you run to the Xeno lab. You see a flustered Morgan running the same way in the Hall Connector, he was coming from the bridge. Which is odd because he was supposed to be in the xeno lab. But now isn’t the time to ask questions, you will have plenty of time when the Xeno lab has been dealt with.
+
+[[Run to &quot;Xeno Lab&quot; -&gt;Xeno Lab2]]</tw-passagedata><tw-passagedata pid="77" name="Xeno Lab2" tags="" position="2461,281" size="100,100">Xeno Lab
+
+A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
+
+When you enter the lab you see, a hole in the air vent system that controls the temperature in the specimen container.
+
+You look at Morgan and he looks back at you. His face flushed with anger. You get the feeling that he puts the blame of this on you.
+
+Before you can fully comprehend what happened, Morgan started to shout at you “You IDIOT! Why weren&#39;t the vents blocked!?”
+
+You respond with “The vent blocking system is manual not automatic, it’s not for containing alien life forms, so no such automatic function was installed. It’s for containing gas and dust.”
+
+Morgan replies “I know that, but why wasn&#39;t the vent grid sturdy enough to stop it? I have told you more than once to switch it”
+
+To that you said “Well I haven&#39;t gotten around to it, there has always been something more important than the vent grid in the specimen container. And it’s not like that would even be a problem if you only stayed on your post. I saw you in the hallway, how can that be when you were supposed to stay here? If you just had stayed, you could have easily used the vent block.”
+
+Morgan refutes with “Well I needed to go to the bathroom”
+
+You answer ”that&#39;s bull shit, the bridge does not have a bathroom”
+
+Morgan then says “Does it matter? The specimen escaped and it’s now somewhere in the air ducts. And I recommend that you take care of that and whose blame it is we can take later”
+
+[[Look around the station for the specimen]]
+
+[[Stay to question Morgan about his whereabouts]]
+</tw-passagedata><tw-passagedata pid="78" name="Look around the station for the specimen" tags="" position="2386,431" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="79" name="Stay to question Morgan about his whereabouts" tags="" position="2536,431" size="100,100">You question Morgan about what  he was doing on the bridge.
+Morgan answers “Are you really bringing that up again with an alien lifeform free on the ship? Aren&#39;t there more important things?”
+
+Despite his question, you are determined to see his excuse, so you can report it to the captain when they get back.
+
+Then Morgan does something you weren&#39;t prepared for, he almost starts crying. Then he says “I know you hate me, everyone on the ship does. That’s why I want off this metal hunk of junk of a station. I don’t care about the recognition or the admiration, I just want to be somewhere where everyone doesn&#39;t hate me. And I saw the alien as my ticket out of here, I thought if I could sell it to a third party, I would have the capital to get off this station and maybe even make my own, somewhere where I am not actively despised. And before you say anything, I know that I have made liking me hard, I know that. I just didn&#39;t want to face the truth that the reason people didn&#39;t like me was my fault and not their lack of sophistication… “
+
+[[Continue]]
+</tw-passagedata><tw-passagedata pid="80" name="Continue" tags="" position="2536,581" size="100,100">Morgan continues “If you must know what I was doing, I was trying to contact my buyers. To tell them to pick it up before it got too big. But I was cut off when it escaped. So they are not coming, neither is the mother station. I didn’t contact them as I was trying to sell it… Jordan if I could ask you a favour, help me capture that thing, if you do I will give you a share and you will never have to see me again. You would like that wouldn&#39;t you?”
+
+[[I know he is lying, this is just another manipulative strategy to make you do all the grunt work.]] 
+
+[[I don’t hate you, but laws are laws and I am going to have to report him to the authorities for this.]]</tw-passagedata><tw-passagedata pid="81" name="I know he is lying, this is just another manipulative strategy to make you do all the grunt work." tags="" position="2461,731" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="82" name="I don’t hate you, but laws are laws and I am going to have to report him to the authorities for this." tags="" position="2611,731" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
