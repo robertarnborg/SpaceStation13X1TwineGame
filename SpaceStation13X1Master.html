@@ -20,7 +20,7 @@ Your Bunk smells of old sweat and dirty laundry. A small mirror displays the ref
 You are in a hallway leading to the various crew quarters. Down the corridor is your crew bunk next to the steaming Crew Showers. You can smell a faint touch of cologne emanating from Father Tristram&#39;s quarter.
 
 (if: $isAirCleanAgain is true)[(if: $hasPonderedAirFlow is false)[
-[[You feel air again flow from the ventilation ducts-&gt;The Air Duct is Flowing Freer]]]
+[[You feel air again flow from the ventilation ducts-&gt;The Air Duct is Flowing Freer]]]]
 
 [[Enter Your Bunk -&gt;Jordan&#39;s Bunk]] 
 
@@ -47,7 +47,7 @@ There are more bloody trails leading towards the shower areas...
 
 (set: $day = 0)
 
-(set: $isAirCleanAgain = true)
+(set: $isAirCleanAgain = false)
 (set: $hasAlienEscaped to false)
 (set: $isChase to false)
 (set: $isMadeContactWithMothership to false)
@@ -130,7 +130,7 @@ In contrast to the Kitchen, this room opens up invitingly with a comfy couch alo
 
 [[Take him to &quot;The Medbay&quot; -&gt;MedbayTristram]]
 
-[[Put him on the sofa]]]
+[[Put him on the sofa]](Set: $isCleaningWithTristram to false)]
 
 (if:$isCleaningWithTristram is true)[ You spend an hour cleaning up your mess.
 
@@ -146,11 +146,8 @@ In contrast to the Kitchen, this room opens up invitingly with a comfy couch alo
 
 A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
 
-(if: $hasAlienEscaped is false)[
- Debris is covering the floor and the research chamber has cracked in two. You also notice the air vent inside the room.
- (set: $hasAlienEscaped to true)
-]
-
+(if: $hasAlienEscaped is true)[
+ Debris is covering the floor and the research chamber has cracked in two. You also notice the air vent inside the room.]
 
 [[Go to Med Bay -&gt;Med Bay]] 
 
@@ -172,9 +169,8 @@ Looking down you see the gooey, dark, moist, red pools of blood, littered with c
 After climbing in the vents for some time. You find yourself in Air Duct No. 1, a chilly draft penetrates your protective clothing and makes your stay uncomfortable.
 
 (if: $airDuctXenoTrace is false)[
-There are fresh bloody trails leading through the ventilation shaft...
-(set: $airDuctXenoTrace to true)
-]
+There are fresh bloody trails leading through the ventilation shaft...]
+(Set: $airDuctXenoTrace to true)
 
 [[There is a passage leading to the Xeno Lab -&gt;Xeno Lab]] 
 
@@ -227,7 +223,7 @@ You meet Father Tristram outside your bunk.
 
 Tristram: &quot;Morgan asked me to get you.&quot;
 
-[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="26" name="Contemplate Coffee" tags="" position="986,978" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realize all the alco-fuel you left in the Meeting Lounge... where also there is coffee.
+[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="26" name="Contemplate Coffee" tags="" position="989,976" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realize all the alco-fuel you left in the Meeting Lounge... where also there is coffee.
 
 Tristram: &quot;Jordi. Morgan told me to fetch you here and stealing your time like this was clearly not worth the trouble.&quot;
 
@@ -239,7 +235,7 @@ The priest offers to help you clean up in the Meeting Lounge.
 
 [[Go To Crew Quarters -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="27" name="The Air Duct is Flowing Freer" tags="" position="1559,813" size="100,100">You sense that the draft coming from the station&#39;s air ducts flow freer than before. You relax a little as the annoying beep from your datapad goes silent.
 (Set: $hasPonderedAirFlow to true)
-[[&quot;Huh, the&#39;ve must have fixed themselves.&quot; -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="28" name="THE FREE ROAM GAME" tags="" position="1589,23" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="Go With Tristram" tags="" position="985,522" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
+[[&quot;Huh, they&#39;ve must have fixed themselves.&quot; -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="28" name="THE FREE ROAM GAME" tags="" position="1589,23" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="Go With Tristram" tags="" position="985,522" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
 
 Morgan: &quot;It is amazing!&quot;
 
@@ -307,7 +303,7 @@ Morgan: &quot;Regenerative welding tissue... responds to organic stimuli... fasc
 [[Take it]]</tw-passagedata><tw-passagedata pid="37" name="Take it" tags="" position="407,422" size="100,100">You proudly say, ALL IN. As you push your chips into the middle of the table. Morgan the coward, pulls out. While Tristram challenges your bet. There is no way he got anything better than a four of a kind queens.
 
 [[reveal cards]]
-</tw-passagedata><tw-passagedata pid="38" name="reveal cards" tags="" position="409,554" size="100,100">With a grin on your face, you reveal your cards, confident that he got nothing. Tristram does the same. You look at his cards... Ha! He only got a strait. And you got a four of a kind so that means you win.
+</tw-passagedata><tw-passagedata pid="38" name="reveal cards" tags="" position="409,554" size="100,100">With a grin on your face, you reveal your cards, confident that he got nothing. Tristram does the same. You look at his cards... Ha! He only got a straight. And you got a four of a kind so that means you win.
 
 [[Celebrate your victory]]
 </tw-passagedata><tw-passagedata pid="39" name="Celebrate your victory" tags="" position="410,675" size="100,100">As you start celebrating, your coworkers look at you with bewilderment. As you stop to ask them why they look surprised. Tristram says “A straight beats three of a kind, I win”.  What is he saying? You got a four of a kind. 
@@ -329,14 +325,14 @@ Dear god no! First I lose to Tristram and then Morgan wants to talk about his di
 </tw-passagedata><tw-passagedata pid="42" name="Keep drinking" tags="" position="331,1040" size="100,100">As you drink you think to yourself, &quot;Why am I stuck on this research station, orbiting a middle-of-nowhere planet no one knows of?
 Now that I think about it, it’s more like a P.O box than a research station. We only house the finds the diggers send up to us and then prep &#39;em for some serious analysis on the mothership. There&#39;s only equipment here to preserve things, not analyze them, something Morgan makes painfully clear is beneath him. According to him his place is on the mothership, as they get the credit they deserve. But I don’t really care about that, it seems so pointless to focus on something like prestige, when most people won’t know what you did no matter what you have done. But if there&#39;s one thing I want, a better drinking buddy would be on top of my list.”
 
-[[Keep drinking2]]
+[[Keep drinking -&gt;Keep drinking2]] 
 </tw-passagedata><tw-passagedata pid="43" name="Keep drinking2" tags="" position="453,1043" size="100,100">When your bottle is empty, you take a look at Morgan, who is weirdly quiet. He shoots you a look and asks “Why are we… here?”
 
 [[Because we are paid to be here?]]
 
 [[Because here you&#39;ll make the breakthrough of the century!]]</tw-passagedata><tw-passagedata pid="44" name="Because we are paid to be here?" tags="" position="576,1128" size="100,100">Morgan answers “Are you happy with that? For a paycheck to be the only reason you get up in the morning? Is there nothing you strive for? No dream? No goals? 
 
-Though his questions hit you hard, it hasn&#39;t been the first time you heard them and frankly you are tired of him questioning your self-worth. You can see in his eyes that he is only waiting for you to answer, so he can rub in that he has a career. And that he as a scientist can change the world. You rather not want to talk with him when he gets like this.
+Though his questions hit you hard, it isn&#39;t the first time you heard them and frankly you are tired of him questioning your self-worth. You can see in his eyes that he is only waiting for you to answer, so he can rub in that he has a career. And that he as a scientist can change the world. You rather not want to talk with him when he gets like this.
 [[Leave -&gt;PreludeBar3]] 
 </tw-passagedata><tw-passagedata pid="45" name="Because here you&#39;ll make the breakthrough of the century!" tags="" position="400,1175" size="100,100">Morgan looks at your smug face. He says “Are you making fun of me? You? A lowly engineer that can barely stay sober let alone do any actual work? You are making fun of me? Puf. Come back when you got the command bridge working and talk to me.  
 
@@ -478,10 +474,16 @@ As you enter air duct 2, a foul smell enters your nostrils, the pungent odour se
 (link: &quot;There is a passage leading to the Crew Showers&quot;)[(set: $currentPassage to &quot;Chase Crew Showers&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Showers&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="58" name="Chase Jordan&#39;s Bunk" tags="" position="3239,988" size="100,100">[[There is a door leading outside to the Crew Quarters Hallway -&gt;Chase Crew Quarters]] 
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="58" name="Chase Jordan&#39;s Bunk" tags="" position="3239,988" size="100,100">Jordan&#39;s Bunk
+
+No time for sleep! Only the essentials!
+You quickly grab one of your teddys.
+
+[[There is a door leading outside to the Crew Quarters Hallway -&gt;Chase Crew Quarters]] 
+
 
 &lt;!-- 10 TIMER --&gt;
-[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="59" name="Chase Med Bay" tags="" position="3368,364" size="100,100">Med Bay
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="59" name="Chase Med Bay" tags="" position="3369,364" size="100,100">Med Bay
 
 As you walk into the med bay, a familiar pain courses through your right wrist, you remember that it wasn&#39;t that long ago your wrist was sprained and that you had to spend most of your day cooped up in this little room. The room itself is claustrophobic as it has to pull double duty as both med bay and storage space. To your right you see the bed you stayed in and to your left there is nothing but boxes with a hazard symbol on them, but you doubt there is anything in them that would cause alarm. Behind the boxes there is a narrow walkway, which leads to the xeno lab.
 
@@ -555,7 +557,7 @@ You are able to warn the Mother Ship about the escape of that... thing!
 [[Crawl to the Engine Room -&gt;Engine Room]] 
 
 [[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="65" name="ESCAPE POD CHECK ENDING" tags="" position="3605,621" size="100,100">(if: $isGetTristram)[
-	(if: $isMadeContactWithMothership)[
+	(if: $isMadeContactWithMothership is true)[
 		(goto: &quot;Ending With Tristram Made Contact&quot;)]
 (else:)[
 (goto: &quot;Ending With Tristram No Contact&quot;)]
@@ -581,7 +583,7 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="67" name="Ending With Tristram No Contact" tags="" position="3761,608" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="67" name="Ending With Tristram No Contact" tags="" position="3761,608" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he intercepts the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion who only winks and gives a tired smile. The thing climbs into the pod, it bites your throat. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom. ”
 
 Hours later an escape pod is picked up, by an unsuspecting cargo ship. No one survived...
 
@@ -602,9 +604,9 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Ending Alone" tags="" position="3760,726" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Ending Alone" tags="" position="3760,726" size="100,100">Running to the escape pod, drenched in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
 
-It’s Tristram! Banging on the door to let him in. He screams “Let me in!”, but it’s too late. The pod ejects before you can do anything. And as you get sucked it into the vacuum of space, you see Tristram getting attacked and eaten by that monster!
+It’s Tristram! Banging on the door to let him in. He screams “Let me in!”, but it’s too late. The pod ejects before you can do anything. And as you get sucked into the vacuum of space, you see Tristram getting attacked and eaten by that monster!
 
 As you hover in space waiting for rescue, the last words Tristram told you echoes in your mind. Let me in. Let me in.. Let me in...
 
