@@ -19,21 +19,19 @@ Your Bunk smells of old sweat and dirty laundry. A small mirror displays the ref
 
 You are in a hallway leading to the various crew quarters. Down the corridor is your crew bunk next to the steaming Crew Showers. You can smell a faint touch of cologne emanating from Father Tristram&#39;s quarter.
 
-(if: $isAirCleanAgain is true)[
-[[You feel air again flow from the ventilation ducts-&gt;The Air Duct Are Flowing Freer]] 
-]
-(else:)[
+(if: $isAirCleanAgain is true)[(if: $hasPonderedAirFlow is false)[
+[[You feel air again flow from the ventilation ducts-&gt;The Air Duct is Flowing Freer]]]
+
 [[Enter Your Bunk -&gt;Jordan&#39;s Bunk]] 
 
 [[Enter Showers-&gt;Crew Showers]] 
 
 [[Go To Hall Connector -&gt;Hall Connector]] 
-]
-(if: $hasAlienEscaped is true)[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]] </tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1592,603" size="100,100">Crew Showers
+[[Enter Air Duct No. 1 -&gt;Air Duct No. 1]]</tw-passagedata><tw-passagedata pid="3" name="Crew Showers" tags="" position="1592,603" size="100,100">Crew Showers
 
 (set: $shower1 to &quot;Steam and hot vapor greet you as you enter the shower area. Refreshing!&quot;)
 
-(set: $shower2 to &quot;A musky stench of decay fill the shower areas and blood is pouring out from every shower faucet.&quot;)
+(set: $shower2 to &quot;A musky stench of decay fill the shower areas. There&#39;s a red liquid, gently pouring from the air duct down into the shower drain. Fresh blood!&quot;)
 
 (if: $hasAlienEscaped is false)[$shower1]
 (else:)[$shower2]
@@ -49,7 +47,7 @@ You are in a hallway leading to the various crew quarters. Down the corridor is 
 (set: $isChase to false)
 (set: $isMadeContactWithMothership to false)
 (set: $isUnlockMorganRevelation to false)
-
+(Set: $hasPonderedAirFlow to false)
 (set: $isCleaningWithTristram to false)
 (set: $isGetMorgan to false)
 (set: $isGetTristram to false)
@@ -78,7 +76,7 @@ This is the main command room of the station. And as such it is plastered with t
 
 (if: $hasAlienEscaped is true)[[Enter Air Duct No. 4 -&gt;Air Duct No. 4]]
 
-(if: $hasAlienEscaped is true)[(if: $isMadeContactWithMothership is false)(link: &quot;Contact Mother Ship&quot;)[(set: $isMadeContactWithMothership to true)(goto: &quot;Bridge Mother Ship Contacted&quot;)]]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1775,448" size="100,100">Hall Connector
+(if: $hasAlienEscaped is true)[(if: $isMadeContactWithMothership is false)(link: &quot;Contact Mother Ship&quot;)[(set: $isMadeContactWithMothership to true)(goto: &quot;Bridge Mother Ship Contacted&quot;)]]</tw-passagedata><tw-passagedata pid="7" name="Hall Connector" tags="" position="1756,398" size="100,100">Hall Connector
 
 This central hallway hub leads to all the main modules of Space Station 13X1.
 
@@ -92,7 +90,7 @@ This central hallway hub leads to all the main modules of Space Station 13X1.
 
 [[Crew Quarters]] 
 
-[[Emergency Escape Pod]] </tw-passagedata><tw-passagedata pid="8" name="Med Bay" tags="" position="1906,339" size="100,100">Med Bay
+[[Emergency Escape Pod]] </tw-passagedata><tw-passagedata pid="8" name="Med Bay" tags="" position="2025,316" size="100,100">Med Bay
 
 As you walk into the med bay, a familiar pain courses through your right wrist, you remember that it wasn&#39;t that long ago your wrist was sprained and that you had to spend most of your day cooped up in this little room. The room itself is claustrophobic as it has to pull double duty as both med bay and storage space. To your right you see the bed you stayed in and to your left there is nothing but boxes with a hazard symbol on them, but you doubt there is anything in them that would cause alarm. Behind the boxes there is a narrow walkway, which leads to the xeno lab.
 
@@ -106,7 +104,7 @@ As you walk into the med bay, a familiar pain courses through your right wrist, 
 
 A strange odour fill your nostrils from the unemptied trash compactor to your left. It seems the one scheduled to empty it forgot to before they left the ship for the planet. The meal prep area loosely named &quot;The Kitchen&quot; is a cramped space fit for a person at a time. Some in the crew get claustrophobic but you&#39;re used to crawling in tight places.
 
-[[Return to Meeting Lounge -&gt;Meeting Lounge]] </tw-passagedata><tw-passagedata pid="10" name="Docking Station" tags="" position="2133,335" size="100,100">Docking Station
+[[Return to Meeting Lounge -&gt;Meeting Lounge]] </tw-passagedata><tw-passagedata pid="10" name="Docking Station" tags="" position="2214,326" size="100,100">Docking Station
 
 This is where ships dock at the station. You can see compartments for crew space suits lined up on the wall next to the docking entrance vault. 
 
@@ -116,21 +114,23 @@ However, only two suits remain.
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 
-(if: $hasAlienEscaped is true)[As you walk into the meeting room, you are met with a horrible sight, Tristram laying on the floor with his right arm for a lack of a better word gone. It’s nothing more than a bloody stump slowly leaking on the floor. Tristram is unconscious, you&#39;re guessing it’s from the blood loss.]
+(if: $hasAlienEscaped is true)[As you walk into the meeting room, you are met with a horrible sight, Tristram laying on the floor with his right arm for a lack of a better word gone. It’s nothing more than a bloody stump slowly leaking on the floor. Tristram is unconscious, you&#39;re guessing it’s from the blood loss.
 
-(if:$isCleaningWithTristram is true)[ You spend an hour cleaning up your mess.]
+[[Take him to &quot;The Medbay&quot; -&gt;MedbayTristram]]
 
-(if: $isAirCleanAgain is true)[
-[[You feel air again flow from the ventilation ducts-&gt;The Air Duct Are Flowing Freer]] 
-(set: $isAirCleanMeetingLounge to true)
-]
-(else:)[
-[[Enter &quot;The Bar&quot;-&gt;The Bar]] 
-]
+[[Put him on the sofa]]]
+
+(if:$isCleaningWithTristram is true)[ You spend an hour cleaning up your mess.
+
+(live: 3s)[After some time you hear a loud clammering from the Xeno Lab and Morgan shouting, &quot;What the hell was that?!&quot;. Tristram says it&#39;s ok if you go, he&#39;ll finish cleaning up.
+[[Go to &quot;Xeno Lab&quot; -&gt;Hall Connector2]]]]
+
+
+[[Enter The Bar-&gt;The Bar]]
 
 [[Enter Kitchen -&gt;The Kitchen]] 
 
-[[Go To Hall Connector-&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1996,491" size="100,100">Xeno Lab
+[[Go To Hall Connector-&gt;Hall Connector]]</tw-passagedata><tw-passagedata pid="12" name="Xeno Lab" tags="" position="1989,493" size="100,100">Xeno Lab
 
 A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
 
@@ -175,11 +175,11 @@ The tight metal ventilation shafts of Air Duct No. 4 are filled with gloomy flic
 
 [[There is a passage leading to the Bridge -&gt;Bridge]] 
 
-[[There is a passage leading to the Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="17" name="Engine Room" tags="" position="2060,99" size="100,100">Engine Room
+[[There is a passage leading to the Med Bay -&gt;Med Bay]] </tw-passagedata><tw-passagedata pid="17" name="Engine Room" tags="" position="2041,84" size="100,100">Engine Room
 
 &quot;In a poorly lit crawl space in the lower floors of the station, the main engine resides. It&#39;s a big complicated machine with numerous valves and leavers, requiring certain finesse to tame. It’s heated pipes and electrical wiring makes it dangerous for untrained personnel.&quot;)
 
-[[Return to The Bridge -&gt;Bridge]]</tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="2135,449" size="100,100">Emergency Escape Pod
+[[Bridge]] </tw-passagedata><tw-passagedata pid="18" name="Emergency Escape Pod" tags="" position="1866,488" size="100,100">Emergency Escape Pod
 
 In a dark rarely visited room in the depths of the station, lies the coveted escape pod. The room is dank, and the floor is covered in a thin mist, a faint smell of rust fills the room. A singular escape pod stands in the middle of the room with it’s doors open beckoning you to come to its safety.
 
@@ -216,9 +216,7 @@ You meet Father Tristram outside your bunk.
 
 Tristram: &quot;Morgan asked me to get you.&quot;
 
-[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="29" name="The Air Duct Are Flowing Freer" tags="" position="1237,1075" size="100,100">You sense the Air coming from the station&#39;s air ducts flow freer than before. 
-
-[[Hmm, the air ducts must have fixed itself.]]</tw-passagedata><tw-passagedata pid="30" name="Contemplate Coffee" tags="" position="986,978" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realized all the alco-fuel you left in the Meeting Lounge...
+[[Go With Tristram]]</tw-passagedata><tw-passagedata pid="29" name="Contemplate Coffee" tags="" position="986,978" size="100,100">Seeing Morgan&#39;s science experiment reminds you of your real duty of the day: To fix the ventilation in the Crew Quarters, but, you also realized all the alco-fuel you left in the Meeting Lounge...
 
 Tristram: &quot;Jordi. Morgan told me to fetch you here and stealing your time like this was clearly not worth the trouble.&quot;
 
@@ -228,24 +226,24 @@ The priest offers to help you clean up in the Meeting Lounge.
 
 [[Help Tristram in Meeting Lounge -&gt;Meeting Lounge]] 
 
-[[Go To Crew Quarters -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="31" name="Hmm, the air ducts must have fixed itself." tags="" position="1349,1072" size="100,100">(if: $isAirCleanMeetingLounge is true)[[[Continue cleaning up alco-fuel -&gt;Meeting Lounge]]]
-(else:)[[[The beeping from your datapad is silent. -&gt;Crew Quarters]]]
-(set: $isAirCleanAgain to false)</tw-passagedata><tw-passagedata pid="32" name="THE FREE ROAM GAME" tags="" position="1589,23" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Go With Tristram" tags="" position="984,522" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
+[[Go To Crew Quarters -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="30" name="The Air Duct is Flowing Freer" tags="" position="1559,813" size="100,100">You sense that the draft coming from the station&#39;s air ducts flow freer than before. You relax a little as the annoying beep from your datapad goes silent.
+(Set: $hasPonderedAirFlow to true)
+[[&quot;Huh, the&#39;ve must have fixed themselves.&quot; -&gt;Crew Quarters]] </tw-passagedata><tw-passagedata pid="31" name="THE FREE ROAM GAME" tags="" position="1589,23" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Go With Tristram" tags="" position="985,522" size="100,100">You follow the priest to the Research section of the Station and hear the excited shouts of joy from outside the Lab Room...
 
 Morgan: &quot;It is amazing!&quot;
 
 You enter the room.
-[[Continue -&gt; TheThing]]</tw-passagedata><tw-passagedata pid="34" name=" TheThing" tags="" position="988,657" size="100,100">Morgan: &quot;Look, look at it&#39;s amazing growth!&quot;
+[[Continue -&gt; TheThing]]</tw-passagedata><tw-passagedata pid="33" name=" TheThing" tags="" position="988,657" size="100,100">Morgan: &quot;Look, look at its amazing growth!&quot;
 
-You find Morgan entranced, staring through the window pane facing the Research Chamber. Beyond, in the center of the incasing, exists, a small, but rapidly growing slug of red meat.
+You find Morgan entranced, staring through the window pane facing the Research Chamber. Beyond, in the center of the encasing, exists, a small, but rapidly growing slug of red meat.
 
-You see the red IV tubing connected to the thing.
+You see the red IV tubing connected to the thing.  
 
-[[What is it we are feeding this, blood?]]</tw-passagedata><tw-passagedata pid="35" name="What is it we are feeding this, blood?" tags="" position="990,798" size="100,100">The hubris of Morgan&#39;s endeavours and the sight of that thing gives you a searing head ache.
+[[What is it we are feeding this, blood?]]</tw-passagedata><tw-passagedata pid="34" name="What is it we are feeding this, blood?" tags="" position="990,798" size="100,100">The hubris of Morgan&#39;s endeavours and the sight of that thing gives you a searing headache.
 
 Morgan: &quot;Regenerative welding tissue... responds to organic stimuli... fascinating!!&quot;
 
-[[Contemplate Coffee]] </tw-passagedata><tw-passagedata pid="36" name="Neverending Tirade" tags="" position="763,234" size="100,100">Morgan goes on about unappreciative crew members and how they cannot understand him. You think to yourself:
+[[Contemplate Coffee]] </tw-passagedata><tw-passagedata pid="35" name="Neverending Tirade" tags="" position="763,234" size="100,100">Morgan goes on about unappreciative crew members and how they cannot understand him. You think to yourself:
 
 &quot;Why am I stuck on this space station and my only drinking buddy is a drug addicted bio-chemist, who pesters the shit out of me with his incessant ramblings?&quot; 
 
@@ -255,7 +253,7 @@ Morgan:&quot;Why are we... here?&quot;
 
 [[You know what... I was just wondering the exact same. -&gt;WonderSame]]
 
-[[To research and explore the great unknown, it is a research station after all? -&gt;GreatUnknown]]</tw-passagedata><tw-passagedata pid="37" name="Chase Sequence Template" tags="" position="1248,160" size="100,100">&lt;!-- DEBUG --&gt;
+[[To research and explore the great unknown, it is a research station after all? -&gt;GreatUnknown]]</tw-passagedata><tw-passagedata pid="36" name="Chase Sequence Template" tags="" position="1243,17" size="100,100">&lt;!-- DEBUG --&gt;
 
 (set: $isChase to true)
 
@@ -299,50 +297,48 @@ Morgan:&quot;Why are we... here?&quot;
 (live: 3s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 4s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
 (live: 5s)[(goto: &quot;Dead&quot;)]
-]</tw-passagedata><tw-passagedata pid="38" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="39" name="Dead" tags="" position="2289,841" size="100,100">The monster of meat surrounds your body and feeds on your remains.
+]</tw-passagedata><tw-passagedata pid="37" name="Untitled Passage 1" tags="" position="1373,17" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="38" name="Dead" tags="" position="2783,142" size="100,100">The monster of meat surrounds your body and feeds on your remains.
 
-[[Try Again From Engine Room-&gt;Chase Engine Room]] </tw-passagedata><tw-passagedata pid="40" name="Start" tags="" position="199,281" size="100,100">You&#39;re at the bar on space station 13X1, playing poker with two colleges, Morgan and Tristram. You have been drinking the holw evening to celebrate some scientific find Morgan handmade. Off what you can recall it was something about a living tissue thing, you don’t remember the finer details, as it all flew over your head when it was mentioned in the mornings breath. But for now you are more interested in winning your current hand of poker, than some weird space rock.
+[[Try Again From Engine Room-&gt;Chase Engine Room]] </tw-passagedata><tw-passagedata pid="39" name="Start" tags="" position="199,281" size="100,100">You&#39;re at the bar on space station 13X1, playing poker with two colleges, Morgan and Tristram. You have been drinking the whole evening to celebrate some scientific find Morgan had made. Furthermore, you recall it was something about a living tissue thing, you don’t remember the finer details, as it all flew over your head when it was mentioned in the morning&#39;s breath. But for now you are more interested in winning your current hand of poker, than some weird space rock.
 
-[[Look at your hand]]
-</tw-passagedata><tw-passagedata pid="41" name="Look at your hand" tags="" position="312,283" size="100,100">You take a look at your cards. It&#39;s somewhat hard to see due to the dim light as the auto dimming system kicks in at this time of night. But what you see puts a smirk on your face, you have a four of queens. You take a quick glance at your coworkers faces and they look stumpt. Is this the opening you were looking for? A chance to clean them for all they got?
+[[Look at your hand]]</tw-passagedata><tw-passagedata pid="40" name="Look at your hand" tags="" position="312,283" size="100,100">You take a look at your cards. It&#39;s somewhat hard to see due to the dim light as the auto dimming system kicks in at this time of night. But what you see puts a smirk on your face, you have a four of queens. You take a quick glance at your coworkers faces, and they look stumped. Is this the opening you were looking for? A chance to clean them for all they got?
 
-[[Take it]]</tw-passagedata><tw-passagedata pid="42" name="Take it" tags="" position="407,422" size="100,100">You proudly say, ALL IN. As you push your chips into the middle of the tabel. Morgan the coward, pulls out. While Tristram challenges your bet. There is no way he got anything better than a four of a kind queens.
+[[Take it]]</tw-passagedata><tw-passagedata pid="41" name="Take it" tags="" position="407,422" size="100,100">You proudly say, ALL IN. As you push your chips into the middle of the table. Morgan the coward, pulls out. While Tristram challenges your bet. There is no way he got anything better than a four of a kind queens.
 
 [[reveal cards]]
-</tw-passagedata><tw-passagedata pid="43" name="reveal cards" tags="" position="409,554" size="100,100">With a grin on your face, you reveal your cards, confident that he got nothing. Tristram does the same. You look at his cards, Ha he only got a strait. And you got a four of a kind so that means you win.
+</tw-passagedata><tw-passagedata pid="42" name="reveal cards" tags="" position="409,554" size="100,100">With a grin on your face, you reveal your cards, confident that he got nothing. Tristram does the same. You look at his cards... Ha! He only got a strait. And you got a four of a kind so that means you win.
 
 [[Celebrate your victory]]
-</tw-passagedata><tw-passagedata pid="44" name="Celebrate your victory" tags="" position="410,675" size="100,100">As you start celebrating, your coworkers look at you with bewilderment. As you stop to ask them why they look surprised. Tristram says “A straight beats three of a kind, I win”.  What is he saying? You got a four of a kind. 
+</tw-passagedata><tw-passagedata pid="43" name="Celebrate your victory" tags="" position="410,675" size="100,100">As you start celebrating, your coworkers look at you with bewilderment. As you stop to ask them why they look surprised. Tristram says “A straight beats three of a kind, I win”.  What is he saying? You got a four of a kind. 
 
-[[Dubbel check your cards]]
-</tw-passagedata><tw-passagedata pid="45" name="Dubbel check your cards" tags="" position="413,790" size="100,100">You dubbel check your cards and as you do so you are grabbed by the realization. That one of your Queens is a Jack not a queen. You had mistaken it as a queen as you are so drunk you can barely see. Not that the bars dim light helpt. As you look over at Tristram as he joyfully sweeps the pot. You think to yourself “The bastard wasn&#39;t even drunk, something about his religion or what ever denied him from drinking, what a sack of bullshit. He probably didn’t drink so he could easily win against dunk opponents. What a git.”
+[[Double check your cards]]</tw-passagedata><tw-passagedata pid="44" name="Double check your cards" tags="" position="413,790" size="100,100">You double-check your cards and as you do so, you are grabbed by the realization. That one of your Queens is a Jack not a queen. You had mistaken it for a queen as you are so drunk you can barely see. Not that the bars dim light helped. As you look over at Tristram as he joyfully sweeps the pot. You think to yourself “The bastard wasn&#39;t even drunk, something about his religion or what ever denied him from drinking, what a sack of bullshit. He probably didn’t drink, so he could easily win against dunk opponents. What a git.”
 
-And as you angerdly mumble to yourself, Morgan tried to strike up a conversation. 
+And as you angrily mumble to yourself, Morgan tried to strike up a conversation. 
 
 Morgan: &quot;I want to tell you something, Jordan... it&#39;s about my latest discovery.&quot;
 
 Dear god no! First I lose to Tristram and then Morgan wants to talk about his discoveries!? Unless he discovered how to not be completely insufferable I will need another bottle, preferably before I brain myself on the table.
 
 [[Find your will to live]]
-</tw-passagedata><tw-passagedata pid="46" name="Find your will to live" tags="" position="412,924" size="100,100">As Morgan starts rambling about how important this discovery is and how he should get all the credit and that he is under appreciated in his time or whatever. You swiftly grab something and take a swig. It tastes awful like a mixture of soap and cheap gin. But it passes the time and the awful tased dose distracts you from Morgan.
+</tw-passagedata><tw-passagedata pid="45" name="Find your will to live" tags="" position="412,924" size="100,100">As Morgan starts rambling about how important this discovery is and how he should get all the credit and that he is under appreciated in his time or whatever. You swiftly grab something and take a swig. It tastes awful like a mixture of soap and cheap gin. But it passes the time and the awful tased dose distracts you from Morgan.
 
 [[keep drinking]]
-</tw-passagedata><tw-passagedata pid="47" name="keep drinking" tags="" position="332,1040" size="100,100">As you drink you think to yourself  &quot;Why am I stuck on this research station in the middle nowhere, orbiting a planet no one knows of? Now that I think about it it’s more like a P.O box than a research station as we only house the finds that the explorers send to us and then send that to a bigger station for analazis. We only got the equipment to preserve things, not analyze them, something Morgan makes painfully clear is beneath him and that he should be working at that bigger station, as they get the credit they deserve. But I don’t really care about that, it seems so pointless to focus on something like credit, when most people won’t know what you did no matter what you have done. But if there was one thing I wanted, a better drinking buddy would be on top of my list.”
+</tw-passagedata><tw-passagedata pid="46" name="keep drinking" tags="" position="332,1040" size="100,100">As you drink you think to yourself  &quot;Why am I stuck on this research station in the middle nowhere, orbiting a planet no one knows of? Now that I think about it it’s more like a P.O box than a research station as we only house the finds that the explorers send to us and then send that to a bigger station for analazis. We only got the equipment to preserve things, not analyze them, something Morgan makes painfully clear is beneath him and that he should be working at that bigger station, as they get the credit they deserve. But I don’t really care about that, it seems so pointless to focus on something like credit, when most people won’t know what you did no matter what you have done. But if there was one thing I wanted, a better drinking buddy would be on top of my list.”
 
 [[keep drinking2]]
-</tw-passagedata><tw-passagedata pid="48" name="keep drinking2" tags="" position="453,1043" size="100,100">When your bottle is empty, you take a look at Morgan, who is weirdly quiet. He shoots you a look and asks “Why are we… here?”
+</tw-passagedata><tw-passagedata pid="47" name="keep drinking2" tags="" position="453,1043" size="100,100">When your bottle is empty, you take a look at Morgan, who is weirdly quiet. He shoots you a look and asks “Why are we… here?”
 
 [[Because we are paid to be here?]]
 
 [[(sarcastically) Because here you will find the brake thru of a sentry.]]
-</tw-passagedata><tw-passagedata pid="49" name="Because we are paid to be here?" tags="" position="459,1155" size="100,100">Morgan answers “Are you happy with that? For a paycheck to be the only reason you get up in the morning? Is there nothing you strive for? No dream? No goals? 
+</tw-passagedata><tw-passagedata pid="48" name="Because we are paid to be here?" tags="" position="459,1155" size="100,100">Morgan answers “Are you happy with that? For a paycheck to be the only reason you get up in the morning? Is there nothing you strive for? No dream? No goals? 
 
 Though his questions hit you hard, it hasn&#39;t been the first time you heard them and frankly you are tired of him questioning your self worth. You can see in his eyes that he is only waiting for you to answer, so he can rub in that he has a career. And that he as a scientist can change the world. You rather not want to talk with him when he gets like this.
 [[Leave -&gt;PreludeBar3]] 
-</tw-passagedata><tw-passagedata pid="50" name="(sarcastically) Because here you will find the brake thru of a sentry." tags="" position="573,1152" size="100,100">Morgan looks at your smug face. He says “Are you making fun of me? You? A lowly engineer that can barely stay sober let alone do any actual work? You are making fun of me? Puf. Come back when you got the command bridge working and talk to me.  
+</tw-passagedata><tw-passagedata pid="49" name="(sarcastically) Because here you will find the brake thru of a sentry." tags="" position="573,1152" size="100,100">Morgan looks at your smug face. He says “Are you making fun of me? You? A lowly engineer that can barely stay sober let alone do any actual work? You are making fun of me? Puf. Come back when you got the command bridge working and talk to me.  
 
 [[Leave -&gt;PreludeBar3]] 
-</tw-passagedata><tw-passagedata pid="51" name="Chase Bridge" tags="" position="3233,196" size="100,100">The Bridge
+</tw-passagedata><tw-passagedata pid="50" name="Chase Bridge" tags="" position="3233,197" size="100,100">The Bridge
 
 This is the main command room of the station. A massive window takes up the back wall revealing the beauty of the stars. To the right back corner there is a crawl space that leads to the engine room.
 
@@ -355,17 +351,7 @@ You don&#39;t have time to send for help. You need to escape!
 (link: &quot;Enter Air Duct No. 4&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 4&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Air Duct No. 4&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="52" name="Chase Meeting Lounge" tags="" position="3105,410" size="100,100">Meeting Lounge/Dining Room
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="51" name="Chase Meeting Lounge" tags="" position="3105,411" size="100,100">Meeting Lounge/Dining Room
 
 In contrast to the Kitchen, this room opens up invitingly with a comfy couch along the right wall. A big table fills up most of the room with a chair for each of the stations 6 crew members. In the back the room has been sectioned off with a curtain into the area nicknamed &quot;The Bar&quot;.
 
@@ -376,22 +362,12 @@ In contrast to the Kitchen, this room opens up invitingly with a comfy couch alo
 
 (link: &quot;Enter Air Duct No. 2&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 2&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]]
 
-(link: &quot;Chase Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]]
+(link: &quot;Hall Connector&quot;)[(set: $currentPassage to &quot;Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Hall Connector&quot;)]]
 
 [[Enter The Kitchen -&gt;Chase The Kitchen]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="53" name="Chase Air Duct No. 4" tags="" position="3372,239" size="100,100">Air Duct No. 4
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="52" name="Chase Air Duct No. 4" tags="" position="3372,239" size="100,100">Air Duct No. 4
 
 The tight metal ventilation shafts of Air Duct No. 4 are filled with gloomy flickering displays of fans twirling through cascades of light. Droplets from a malfuntioning moisture evaporator make small puddles on the cold floor. You never cared to fix it.
 
@@ -401,41 +377,20 @@ You can hear the beast right behind you and push through hurriedly!
 
 (link: &quot;There is a passage leading to the Bridge &quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
-(link: &quot;There is a passage leading to the Med Bay&quot;)[(set: $currentPassage to &quot;Chase Med Bay&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Med Bay&quot;)]
+(link: &quot;There is a passage leading to the Med Bay&quot;)[(set: $currentPassage to &quot;Chase Med Bay&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Med Bay&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="54" name="Chase Air Duct No. 3" tags="" position="3103,267" size="100,100">Air Duct No. 3
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="53" name="Chase Air Duct No. 3" tags="" position="3103,267" size="100,100">Air Duct No. 3
 
 As you open Air Duct No. 3, you feel a breeze of air touch your skin and hear the soft flapping hums of the ventilation fans.
 
 You can hear the beast right behind you and push through hurriedly!
-
 (link: &quot;There is a passage leading to the Bridge&quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
 (link: &quot;There is a passage leading to The Bar&quot;)[(set: $currentPassage to &quot;Chase The Bar&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase The Bar&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="55" name="Chase Hall Connector" tags="" position="3237,591" size="100,100">The Escape Pod is under the hatch below you. You can escape! You realize there´s room for more, but where are the others!?
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="54" name="Chase Hall Connector" tags="" position="3237,592" size="100,100">The Escape Pod is under the hatch below you. You can escape! You realize there´s room for more, but where are the others!?
 
 (link: &quot;Run To The Bridge&quot;)[(set: $currentPassage to &quot;Chase Bridge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]]
 
@@ -443,46 +398,26 @@ You can hear the beast right behind you and push through hurriedly!
 
 (link: &quot;Run To Meeting Lounge&quot;)[(set: $currentPassage to &quot;Chase Meeting Lounge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Meeting Lounge&quot;)]]
 
-(link: &quot;Run To Chase Crew Quarters&quot;)[(set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
+(link: &quot;Run To Crew Quarters&quot;)[(set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
 
 (link: &quot;Run To Escape Pod&quot;)[(set: $currentPassage to &quot;Chase Emergency Pod&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Emergency Pod&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="56" name="Chase The Bar" tags="" position="2976,420" size="100,100">The Bar
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="55" name="Chase The Bar" tags="" position="2976,420" size="100,100">The Bar
 
-As you run into the bar, you see Morgan dead on the floor. His throat has an uneven hole, and in his hand there is an empty vial. This doesn&#39;t seem to have been done by that thing chasing you. And no one else except for Morgan could have gotten a vial of throat disintegration. So the only other option is suicide. He must not have been able to handle being chased and chose the easy way out. I don’t blame him, I would have done the same if I had the tools.
+As you run into the bar, you find Morgan on the floor. His throat has an uneven hole, as if something burned itself out of it. In his hand there is an empty vial. This doesn&#39;t seem to have been done by that thing chasing you. And no one else except for Morgan had access to liquid this strong. Acid then. So the only other option is suicide. He must not have been able to handle being chased and chose the easy way out. Weak, but I don’t blame him. In his shoes I might&#39;ve done the same.
 
-You can hear the beast behind you!
-
+You can hear the beast behind you! Uh oh, gotta go!
 (link: &quot;Run to Meeting Lounge&quot;)[(set: $currentPassage to &quot;Chase Meeting Lounge&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Meeting Lounge&quot;)]]
 
 (link: &quot;Enter Air Duct No. 3&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 3&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 3&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="57" name="Chase The Kitchen" tags="" position="3108,537" size="100,100">Kitchen
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="56" name="Chase The Kitchen" tags="" position="3108,537" size="100,100">Kitchen
 A strange odour fill your nostrils from the unemptied trash compactor to your left. It seems the one scheduled to empty it forgot to before they left the ship for the planet. The meal prep area loosely named &quot;The Kitchen&quot; is a cramped space fit for a person at a time. Some in the crew get claustrophobic but you&#39;re used to crawling in tight places.
 
-[[Return to Meeting Lounge -&gt;Chase Meeting Lounge]]</tw-passagedata><tw-passagedata pid="58" name="Chase Crew Quarters" tags="" position="3242,835" size="100,100">Crew Quarters
+[[Return to Meeting Lounge -&gt;Chase Meeting Lounge]]
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="57" name="Chase Crew Quarters" tags="" position="3242,835" size="100,100">Crew Quarters
 
 You are in a hallway leading to the various crew quarters. Down the corridor is your crew bunk next to the steaming Crew Showers. You can still smell a faint touch of cologne emanating from Father Tristram&#39;s quarter.
 
@@ -494,20 +429,8 @@ Claws rasp against steel plating behind you. Danger! Gotta go fast!
 
 [[Run To Your Bunk -&gt;Chase Jordan&#39;s Bunk]]
 
-
-
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="59" name="Chase Xeno Lab" tags="" position="3444,483" size="100,100">Xeno Lab
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="58" name="Chase Xeno Lab" tags="" position="3444,483" size="100,100">Xeno Lab
 
 A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
 
@@ -518,17 +441,7 @@ A blinding white light irritates the eyes, as you walk into the lab. In front of
 (link: &quot;Enter Air Duct No. 1&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 1&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 1&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="60" name="Chase Emergency Pod" tags="" position="3469,623" size="100,100">Emergency Escape Pod
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="59" name="Chase Emergency Pod" tags="" position="3446,629" size="100,100">Emergency Escape Pod
 
 In a dark rarely visited room in the depths of the station, lies the coveted escape pod. The room is dank, and the floor is covered in a thin mist, a faint smell of rust fills the room. A singular escape pod stands in the middle of the room with it’s doors open beckoning you to come to its safety.
 
@@ -542,19 +455,7 @@ In a dark rarely visited room in the depths of the station, lies the coveted esc
 --&gt;
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]
-
-</tw-passagedata><tw-passagedata pid="61" name="Chase Crew Showers" tags="" position="3106,834" size="100,100">The shower is filled with blood, and guts everywhere.
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="60" name="Chase Crew Showers" tags="" position="3106,834" size="100,100">The shower is filled with blood, and guts everywhere.
 
 You hear the beast behind you!
 
@@ -563,17 +464,7 @@ You hear the beast behind you!
 (link: &quot;Enter Air Duct No. 2&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 2&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 2&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="62" name="Chase Air Duct No. 2" tags="" position="2938,832" size="100,100">Air Duct No. 2
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="61" name="Chase Air Duct No. 2" tags="" position="2938,832" size="100,100">Air Duct No. 2
 
 As you enter air duct 2, a foul smell enters your nostrils, the pungent odour seems to be leaking from one of the floor panels.
  
@@ -584,32 +475,14 @@ As you enter air duct 2, a foul smell enters your nostrils, the pungent odour se
 (link: &quot;There is a passage leading to the Crew Showers&quot;)[(set: $currentPassage to &quot;Chase Crew Showers&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Crew Showers&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="63" name="Chase Jordan&#39;s Bunk" tags="" position="3239,988" size="100,100">[[There is a door leading outside to the Crew Quarters Hallway -&gt;Chase Crew Quarters]] 
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="62" name="Chase Jordan&#39;s Bunk" tags="" position="3239,988" size="100,100">[[There is a door leading outside to the Crew Quarters Hallway -&gt;Chase Crew Quarters]] 
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="64" name="Chase Med Bay" tags="" position="3376,359" size="100,100">Med Bay
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="63" name="Chase Med Bay" tags="" position="3368,364" size="100,100">Med Bay
 
 As you walk into the med bay, a familiar pain courses through your right wrist, you remember that it wasn&#39;t that long ago your wrist was sprained and that you had to spend most of your day cooped up in this little room. The room itself is claustrophobic as it has to pull double duty as both med bay and storage space. To your right you see the bed you stayed in and to your left there is nothing but boxes with a hazard symbol on them, but you doubt there is anything in them that would cause alarm. Behind the boxes there is a narrow walkway, which leads to the xeno lab.
+
+(if: $isGetTristram)[Tristram was in the autodoc, unconscious, but in a stable condition, so you decided to take him with you!]
 
 You can hear the beast right behind you and push through hurriedly!
 
@@ -624,17 +497,7 @@ You can hear the beast right behind you and push through hurriedly!
 (link: &quot;Enter Air Duct No. 4&quot;)[(set: $currentPassage to &quot;Chase Air Duct No. 4&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name))(goto: &quot;Chase Air Duct No. 4&quot;)]]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="65" name="Chase Engine Room" tags="" position="3233,51" size="100,100">Engine Room
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="64" name="Chase Engine Room" tags="" position="3233,50" size="100,100">Engine Room
 
 In a poorly lit crawl space in the lower floors of the station, the main engine resides. It&#39;s a big complicated machine with numerous valves and leavers, requiring certain finesse to tame. It’s heated pipes and electrical wiring makes it dangerous for untrained personnel.
 
@@ -646,17 +509,7 @@ You can see a hulking thing in the mist behind the engine, it&#39;s skin glisten
 (link: &quot;Run To Bridge&quot;)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Bridge&quot;)]
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="66" name="Chase Air Duct No. 1" tags="" position="3389,820" size="100,100">Air Duct No. 1
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="65" name="Chase Air Duct No. 1" tags="" position="3389,819" size="100,100">Air Duct No. 1
 
 After climbing in the vents for some time. You find yourself in Air Duct No. 1, a chilly draft penetrates your protective clothing and makes your stay uncomfortable.
 
@@ -673,8 +526,9 @@ Looking down you see the gooey, dark, moist, red pools of blood, littered with c
 
 (link: &quot;There is a passage leading to the Crew Quarters&quot;)[((set: $currentPassage to &quot;Chase Crew Quarters&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Crew Quarters&quot;)]]
 
+
 &lt;!-- 10 TIMER --&gt;
-[10]
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="66" name="Untitled Passage" tags="" position="3512,12" size="100,100">[10]
 (live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
 (live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
 (live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
@@ -684,51 +538,26 @@ Looking down you see the gooey, dark, moist, red pools of blood, littered with c
 (live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
 (live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
 (live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="67" name="Untitled Passage" tags="" position="3512,12" size="100,100">[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]
-
-
-&lt;!-- TEMPLATE FOR CHASE TEST $currentPassage is new to $previousPassage --&gt;
-
-(link: &quot;Run To Hall Connector&quot;)[(set: $currentPassage to &quot;Chase Hall Connector&quot;)(if: $currentPassage is $previousPassage)[(goto: &quot;Dead&quot;)](else:)[(set: $previousPassage to (passage:)&#39;s name)(goto: &quot;Chase Hall Connector&quot;)]]</tw-passagedata><tw-passagedata pid="68" name="Chase Docking Station" tags="" position="3532,354" size="100,100">This is where ships dock at the station. You can see compartments for crew space suits lined up on the wall next to the docking entrance vault. 
+(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="67" name="Chase Docking Station" tags="" position="3532,354" size="100,100">This is where ships dock at the station. You can see compartments for crew space suits lined up on the wall next to the docking entrance vault. 
 
 However, only two suits remain.
 
 [[Return To Med Bay -&gt;Chase Med Bay]] 
 
 &lt;!-- 10 TIMER --&gt;
-[10]
-(live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)]
-(live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)]
-(live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)]
-(live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)]
-(live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)]
-(live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)]
-(live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)]
-(live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)]
-(live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)]
-(live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="69" name="Bridge Mother Ship Contacted" tags="" position="1893,4" size="100,100">The Bridge
+[10](live: 1s)[(t8n:&quot;dissolve&quot;)[9](stop:)](live: 2s)[(t8n:&quot;dissolve&quot;)[8](stop:)](live: 3s)[(t8n:&quot;dissolve&quot;)[7](stop:)](live: 4s)[(t8n:&quot;dissolve&quot;)[6](stop:)](live: 5s)[(t8n:&quot;dissolve&quot;)[5](stop:)](live: 6s)[(t8n:&quot;dissolve&quot;)[4](stop:)](live: 7s)[(t8n:&quot;dissolve&quot;)[3](stop:)](live: 8s)[(t8n:&quot;dissolve&quot;)[2](stop:)](live: 9s)[(t8n:&quot;dissolve&quot;)[1](stop:)](live: 10s)[(goto: &quot;Dead&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Bridge Mother Ship Contacted" tags="" position="1893,4" size="100,100">The Bridge
 
 You are able to warn the Mother Ship about the escape of that... thing!
 
 [[Crawl to the Engine Room -&gt;Engine Room]] 
 
-[[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="70" name="ESCAPE POD CHECK ENDING" tags="" position="3588,627.5" size="100,100">(if: $isGetTristram)[
+[[Go To Hall Connector -&gt;Hall Connector]] </tw-passagedata><tw-passagedata pid="69" name="ESCAPE POD CHECK ENDING" tags="" position="3605,621" size="100,100">(if: $isGetTristram)[
 	(if: $isMadeContactWithMothership)[
 		(goto: &quot;Ending With Tristram Made Contact&quot;)]
 (else:)[
 (goto: &quot;Ending With Tristram No Contact&quot;)]
 ]
-(else:)[(goto: &quot;Ending Alone&quot;)]</tw-passagedata><tw-passagedata pid="71" name="Ending With Tristram Made Contact" tags="" position="3762,491.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+(else:)[(goto: &quot;Ending Alone&quot;)]</tw-passagedata><tw-passagedata pid="70" name="Ending With Tristram Made Contact" tags="" position="3762,490" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
 
 Hours later an escape pod is picked up, by a military vessel. It had been sent there on suspicion that an alien life form had escaped and proven itself to be dangerous. Their suspicions were right, that is exactly what they found.
 
@@ -749,7 +578,7 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="72" name="Ending With Tristram No Contact" tags="" position="3761,608.5" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="71" name="Ending With Tristram No Contact" tags="" position="3761,608" size="100,100">You made it to the escape pod with Tristram, you quickly fastened him into his chair, and slammed the lock door button as you strap yourself in. You see that thing chasing you, get into the escape pod chamber. But it’s too late, the door will close before it can get into the pod, and there is no way it can open that door. Or that is what would have happened if Tristram wasn&#39;t there. Right before the door closes he inter septs the door with his leg, as the door mechanism crushes his leg bones, it stalls effectively stopping it. You look at Tristram in confusion, but he only smiles. The thing climbs into the pod, it bites your through. The last thing you hear before you die is “Man is but a fleeting dream, destined for doom.”
 
 Hours later an escape pod is picked up, by an unsuspecting cargo ship. No one survived...
 
@@ -770,7 +599,7 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="73" name="Ending Alone" tags="" position="3760,726.5" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="72" name="Ending Alone" tags="" position="3760,726" size="100,100">Running to the escape pod, drench in terrified sweat. You fling the door open, jump into the rickety machine, strap yourself in, and slam the escape button. The door closes and a thud is heard on the outside.
 
 It’s Tristram! Banging on the door to let him in. He screams “Let me in!”, but it’s too late. The pod ejects before you can do anything. And as you get sucked it into the vacuum of space, you see Tristram getting attacked and eaten by that monster!
 
@@ -793,7 +622,64 @@ THE END
 (link: &quot;Ending - Alone&quot;)[
 (set: $isMadeContactWithMothership to false)
 (set: $isGetTristram to false)
-(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata></tw-storydata>
+(goto: &quot;Chase Emergency Pod&quot;)]</tw-passagedata><tw-passagedata pid="73" name="Put him on the sofa" tags="" position="2095,204" size="100,100">After seeing the state Tristram is in, you decide to put him on the sofa. It might be a bit dirty but it’s better than the floor and there is alcohol in the bar cabinets that could be used to disinfect his wound. You think. 
+
+
+After placing him on the sofa, you go and grab a cheap vodka and a cheap gin. You pour some of the vodka on the wound to disinfect it. He makes a grimase it seems pain full, but it’s necessary. As you pour you take a swig of the gin, trying to distract yourself from the blood and gore.
+[[What Now?]]</tw-passagedata><tw-passagedata pid="74" name="Hall Connector2" tags="" position="1865,311" size="100,100">Hall Connector
+
+As you run to the Xeno lab. You see a flustered Morgan running the same way in the Hall Connector, he was coming from the bridge. Which is odd because he was supposed to be in the xeno lab. But now isn’t the time to ask questions, you will have plenty of time when the Xeno lab has been dealt with.
+
+[[Run to &quot;Xeno Lab&quot; -&gt;Xeno Lab2]]</tw-passagedata><tw-passagedata pid="75" name="Xeno Lab2" tags="" position="2109,497" size="100,100">Xeno Lab
+
+A blinding white light irritates the eyes, as you walk into the lab. In front of you there is a plain white desk, with a machine on it, you hazard a guess it is used in research, but how you don’t know. The rest of the room is empty, lacking any form of personality, you never have been much of a fan of the lab’s sterile decor, as it is a far cry from the engine’s raw charm.
+
+When you enter the lab you see a hole in the air vent system that controls the temperature in the specimen container.
+
+You look at Morgan and he looks back at you, his face flushed with anger. You get the feeling that he blames you for this.
+
+Before you can fully comprehend what happened, Morgan is shouting at you “You IDIOT! Why wasn&#39;t the vent blocked!?”
+
+You respond with “The vent blocking system is manual not automatic, it’s not for containing alien life forms, so no such automatic function was installed. It’s for containing gas and dust.”
+
+Morgan replies “I know that, but why wasn&#39;t the vent grid sturdy enough to stop it? I have told you more than once to switch it”
+
+To that you said “Well I haven&#39;t gotten around to it, there&#39;s always been something more important than the vent grid in the specimen container. And it’s not like that would even be a problem if you&#39;d been here. I saw you in the hallway, how can that be when you were supposed to stay here? If you just had stayed, you could have easily used the vent block.”
+
+Morgan refutes with “Well I needed to go to the bathroom”
+
+You answer ”that&#39;s bullshit Morgan, the bridge doesn&#39;t have a bathroom”
+
+Morgan then says “Does it matter? The specimen escaped and it’s now somewhere in the air ducts. I recommend that you take care of that and whose blame it is we can take care of later”
+(Set: $hasAlienEscaped to true)
+(Set: $isAirCleanAgain to true)
+[[Look around the station for the specimen -&gt;Med Bay]] 
+[[Stay to question Morgan about his whereabouts]]
+</tw-passagedata><tw-passagedata pid="76" name="Stay to question Morgan about his whereabouts" tags="" position="2255,502" size="100,100">You question Morgan about what  he was doing on the bridge.
+Morgan answers “Are you really bringing that up again with an alien lifeform free on the ship? Aren&#39;t there more important things?”
+
+Despite his question, you are determined to see his excuse, so you can report it to the captain when they get back.
+
+Morgan grabs your arm and says “Do you have a dream, Jordan? Don’t answer, it’s rhetorical. I  don&#39;t care if you do or not because I have one. That dream is to have my own research station. A real research station and not whatever this is supposed to be. Somewhere where my talents are not wasted like they are here. That&#39;s my dream.” 
+
+Morgan continues “If you must know what I was doing, I was trying to contact potential buyers. To sell the alien specimen. But I was cut off when it escaped. I never registered the find to the bloody mothership either so they&#39;re not coming.
+And now we got an alien life form roaming the station, so if you would be so kind to deal with it, I am willing to pay you for the work.&quot;
+
+[[&quot;I won&#39;t help you, at the rate it was growing capturing it might be dangerous.&quot; -&gt;What Now?]] 
+
+[[&quot;I&#39;m just an engineer, not some alien hunter. I won&#39;t hunt it for you.&quot; -&gt;What Now?]] </tw-passagedata><tw-passagedata pid="77" name="MedbayTristram" tags="" position="2313,21" size="100,100">Seeing Tristram in such a bad state, you decide to take him to the medbay. You don’t know if it will help too much, but a clean bed and  bandages is better than a bar sofa.
+It takes some time to move him, he&#39;s heavier than you expected, despite losing an arm.
+When you finally get to the medbay operation table, you put Tristram down and hook him up to the autodoc. The diagnostic sequense begin as you frantically look around for bandages. The medbay is poorly organized so it takes you some time to find what you were looking for.
+After finding a bandage roll, you then try to treat his wound. You&#39;re not a doctor so you&#39;re not used to applying bandages, going after what you know of from using duct tape. You at least got the wound to stop bleeding. 
+
+[[What Now?]]
+
+(set:$isGetTristram to true)</tw-passagedata><tw-passagedata pid="78" name="What Now?" tags="" position="2645,424" size="100,100">A loud snapping sound echoes throghout the station. You know the sound of a cooling tube snapping, and following it the hiss of cold water meeting hot metal. 
+This could be bad, extremely bad. Without coolant the engine will overheat.
+
+You take a quick glance towards the engine room&#39;s direction and see a thick mist rolling down the corridors. You feel adrenaline pumping as you drop what you were doing and hurry to the engine, if it’s not fixed and you&#39;re unlucky it might lead to an engine meltdown.
+
+[[Rush to the Engine Room -&gt;Chase Engine Room]] </tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
